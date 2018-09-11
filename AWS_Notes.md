@@ -1,12 +1,148 @@
 # Blue Print
   - Ability to write code using AWS security best practices (e.g., not using secret and access keys in the code,instead using IAM roles)
 
-(from old course)
+# (from old course)-----************************------BEGIN
+
 # Exam Tips
   - Understand the difference between a region, an Availability Zone (AZ) and an Edge Location
   - A REGION is the physical location in the world which consists of 2 or more Availability Zones (AZ's) (E.g.: London)
   - An AZ is one or more discrete Data Centers, each with reduntant power, networking and connectivity, housed in separate facilities.
-  - Edge Locations are endpoints for AWS which are used for caching content. Typically consists of CloudFront, Amazon's Content Delivery Network. (NY <-> Melborn, caching to nearest when accessing 2nd time).
+  - Edge Locations are endpoints for AWS which are used for caching content. Typically consists of CloudFront, Amazon's Content Delivery Network. (NY <-> Melborn, caching to nearest (sydney) when accessing 2nd time it will be accessed from sydney).
+
+# Compute *
+- EC2 – vm
+- EC2 container service
+- Elastic BeanStalk
+- Lamda
+- Lightsail – Virtual private service, fixed IP address 
+- Batch –  Batch computing in cloud 
+# Storage *
+- S3 – simple storage service, object based stored, bucket
+- EFS – Elastic File System -  Network based storage 
+- Glacier – Data Archival 
+- Snowball – bring large data into datacenter 
+- Storage Gateway – Virtual appliance, replicates date to S3
+# Database *
+- RDS – Relational Db service, mysql, postgress, oracle 
+- DynamoDB – Non relational 
+- Elasticache -  caching data 
+- Red Shift – Data Warehousing 
+# Migration 
+- AWS Migration Hub – track the migration 
+- Application Discovery service - discover the dependencies. Eg: sharepoint or dependency with DB
+-  Database migration service
+- Server migration service 
+- Snowball
+# Networking & Content Delivery*
+
+- VPC – virtual privacy cloud.  Configure your own private cloud
+- CloudFront – CDN,  stores your image/video closer  to your AZ, edgelocation
+- Route53 – DNS service 
+- API Gateway – 
+- Direct Connect – direct line from hdq to amazon cloud
+
+# Developer Tools 
+
+- CodeStar – colabrating code
+- CodeCommit – store code. Version controller 
+- Code Build
+- Code Deploy
+- CodePipeline
+- X-Ray - debug
+- Cloud9 – IDE, browser
+
+# Management Tools*	
+
+- Cloud watch – 
+- Cloudformation – 
+- CloudTrail – log the changes 
+- Config – monitor the configuration, visual 
+- OpsWorks 
+- Service Catalog 
+- Systems Manager – patch all the EC2
+- Trusted Advisor – advice security, risks, capacity 
+- Managed services 
+
+# Media Sevices
+- Elastic Transcoder – resize video to android /ios
+
+# Machine Learning 
+
+- Sagemaker – 
+- Comprehend 
+- Deeplens – physical hardware – camara
+- Lex
+- Machine learning 
+- Polly – text to voice 
+- Rekognition – upload image / video, will tell you what it is
+- Amazon translate – translator
+- Amazon Transcribe – speech recognition – speech to text  
+
+# Analytics *
+- Athena
+- EMR – big data solution. To process large data 
+- Cloudsearch 
+- ElasticSearchService
+- Kinesis – bigdata, ingesting large amount of data in cloud
+- Kinesis Video Streams
+- Quicksight – BI tool
+- Data Pipleline – moving the data bw to amazon services
+- Glue – ETL
+
+# Security & Identity & Compliance *
+- IAM – Identify Access Management
+- Cognito – Auth service, gives temp access to AWS
+- GuardDuty – malicious activity
+- Inspector – governance tool, check the vulnerability 
+- Macie – scans S3 for PII data
+- Certificate Manager – manage SSL 
+- CloudHSM – Hardware security Module - stores encryption keys 
+- Directory Service – integrating Active directory
+- WAF – Web Application Firewall – prevent XSS, Sql injection
+- Shield – prevent Ddos attacks 
+- Artifact – compliance report, PCI report 
+# Mobile Service 
+
+- Mobile Hub – management console for mobile apps, 
+- PinPoint – push notifications 
+- AWS Appsync – automatically updates the data (offline).  
+- Device Farm 
+- Mobile Analytics 
+
+# AR / VR 
+- Sumerian – code name 
+# Application Integration*
+- Step functions
+- Amazon MQ
+- SNS – Notification service 
+- SQS -  Decoupling 
+- SWF – Simple Workflow Service 
+
+# Customer Engagement 
+- Amazon Connect
+- SES - Simple Email Service 
+
+# Business Productivity 
+- Alexa for Business 
+- Chime – Video conference like xoom
+- Work Docs 
+- WorkMail – like office 365
+
+# Desktop and App Streaming 
+
+-  Workspaces 
+- AppStream 2.0 like citrix 
+
+# IOT
+-  IOT device management 
+- Amazon FreeRtos – OS for microcontroller 
+- GreenGrass 
+
+# Game Development
+- GameLift
+
+# (from old course)-----************************------END
+
 
 # Identity Access Management (IAM)
   - IAM allows you to manage users and their level of access to the AWS console.

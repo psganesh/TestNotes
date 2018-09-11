@@ -3,4 +3,8 @@
 
 # Identity Access Management (IAM)
   - IAM allows you to manage users and their level of access to the AWS console.
+  - Critical Terms
+    - Users - End users (think people)
+    - Groups - A collection of users under one set of permissions (ex: Marketting / Admin)
+    - Role - can assign to AWS resources (e.g. Assign Role to EC2 to access S3)
   

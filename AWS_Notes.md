@@ -9,4 +9,6 @@
     - Role - can assign to AWS resources (not for people) (e.g. Assign Role to EC2 to access S3)
     - Policy - A document that defines one (or more) permissions. This can be attached to User/Group/Role. Possible for user/group/role to share the same policy.
   - LAB
+    - US East (N. Virgina) - New services are launched first in this region.
+    - 
   

@@ -3,35 +3,37 @@
 
 # (from old course)-----************************------BEGIN
 
-# Exam Tips
+# AWS Global Infrastructre - Exam Tips
   - Understand the difference between a region, an Availability Zone (AZ) and an Edge Location
   - A REGION is the physical location in the world which consists of 2 or more Availability Zones (AZ's) (E.g.: London)
   - An AZ is one or more discrete Data Centers, each with reduntant power, networking and connectivity, housed in separate facilities.
   - Edge Locations are endpoints for AWS which are used for caching content. Typically consists of CloudFront, Amazon's Content Delivery Network. (NY <-> Melborn, caching to nearest (sydney) when accessing 2nd time it will be accessed from sydney).
 
+# AWS Platform Components
+
 # Compute *
-- EC2 – vm
-- EC2 container service
-- Elastic BeanStalk
-- Lamda
-- Lightsail – Virtual private service, fixed IP address 
+- EC2 (Elastic Compute Cloud) – vm in AWS platform
+- EC2 container service - this is where you manage & run docker container at scale
+- Elastic BeanStalk - (developer who dont understand AWS, they will just upload code to this) then it provision things like auto Scaling groups, Load balancing, EC2 instance and etc
+- Lambda - code - upload into cloud and control it. eg. lambda function will be triggered if any image is uploaded and text will be writting on top (overlay) of it using lambda.
+- Lightsail – Virtual private service, provisoning a server with fixed IP address (RDP access for windows, SSH for linux) - Control through Management console - Like lower version of EC2 :)
 - Batch –  Batch computing in cloud 
 # Storage *
-- S3 – simple storage service, object based stored, bucket
-- EFS – Elastic File System -  Network based storage 
-- Glacier – Data Archival 
-- Snowball – bring large data into datacenter 
-- Storage Gateway – Virtual appliance, replicates date to S3
+- S3 – simple storage service, object based stored, Files will be stored into bucket
+- EFS – Elastic File System -  Network attach storage - store into volume and mounted to multiple machines
+- Glacier – Data Archival - for eg. need once in a year - cheap
+- Snowball – way to bring in large data into datacenter 
+- Storage Gateway – Virtual appliance, replicates info back to S3 - 4 types
 # Database *
 - RDS – Relational Db service, mysql, postgress, oracle 
 - DynamoDB – Non relational 
-- Elasticache -  caching data 
-- Red Shift – Data Warehousing 
+- Elasticache -  caching data - for Eg. to store top 10 products in cache rather than to pull from DB using web service - it freeup the DB to run the other queries.
+- Red Shift – Data Warehousing or BI - here run complex query (lot time complete, joins & etc) for analysis (for eg. mgmt want to know profit and loss)
 # Migration 
-- AWS Migration Hub – track the migration 
-- Application Discovery service - discover the dependencies. Eg: sharepoint or dependency with DB
--  Database migration service
-- Server migration service 
+- AWS Migration Hub – track your application as you migrate to AWS and integrate with other service
+- Application Discovery service - Automated discover the dependencies. Eg: sharepoint or dependency with DB
+- Database migration service - for eg: oracle DB to migrate to AWS
+- Server migration service - for eg: server to migrate to AWS
 - Snowball
 # Networking & Content Delivery*
 

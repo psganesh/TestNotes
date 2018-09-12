@@ -18,58 +18,64 @@
 - Lambda - code - upload into cloud and control it. eg. lambda function will be triggered if any image is uploaded and text will be writting on top (overlay) of it using lambda.
 - Lightsail – Virtual private service, provisoning a server with fixed IP address (RDP access for windows, SSH for linux) - Control through Management console - Like lower version of EC2 :)
 - Batch –  Batch computing in cloud 
+
 # Storage *
 - S3 – simple storage service, object based stored, Files will be stored into bucket
 - EFS – Elastic File System -  Network attach storage - store into volume and mounted to multiple machines
 - Glacier – Data Archival - for eg. need once in a year - cheap
 - Snowball – way to bring in large data into datacenter 
 - Storage Gateway – Virtual appliance, replicates info back to S3 - 4 types
+
 # Database *
 - RDS – Relational Db service, mysql, postgress, oracle 
 - DynamoDB – Non relational 
 - Elasticache -  caching data - for Eg. to store top 10 products in cache rather than to pull from DB using web service - it freeup the DB to run the other queries.
 - Red Shift – Data Warehousing or BI - here run complex query (lot time complete, joins & etc) for analysis (for eg. mgmt want to know profit and loss)
-# Migration 
-- AWS Migration Hub – track your application as you migrate to AWS and integrate with other service
-- Application Discovery service - Automated discover the dependencies. Eg: sharepoint or dependency with DB
-- Database migration service - for eg: oracle DB to migrate to AWS
-- Server migration service - for eg: server to migrate to AWS
-- Snowball
-# Networking & Content Delivery*
 
-- VPC – virtual privacy cloud.  Configure your own private cloud
-- CloudFront – CDN,  stores your image/video closer  to your AZ, edgelocation
+# Migration 
+- AWS Migration Hub – track your application as you migrate to AWS and integrate with other services within migration framework
+- Application Discovery service - Automated discover the dependencies. Eg: sharepoint or dependency with DB
+- Database migration service - for eg: On premises DB into AWS
+- Server migration service - for eg: server to migrate to AWS
+- Snowball - migrate TB data into AWS
+
+# Networking & Content Delivery*
+- VPC – virtual private cloud.  Configure your own private cloud (firewall, AZ, N/W side IP range, route tables and etc)
+- CloudFront – CDN,  stores your image/video closer to your AZ, edgelocation
 - Route53 – DNS service 
-- API Gateway – 
-- Direct Connect – direct line from hdq to amazon cloud
+- API Gateway – Create own API to talk to other services
+- Direct Connect – direct line from hdq to amazon cloud / VPC
 
 # Developer Tools 
-
-- CodeStar – colabrating code
-- CodeCommit – store code. Version controller 
-- Code Build
-- Code Deploy
-- CodePipeline
-- X-Ray - debug
-- Cloud9 – IDE, browser
+- CodeStar – collabrating code
+- CodeCommit – store code. Version controller. Store GitHub respository
+- Code Build - Compile then run tests then produce software packages ready to deploy
+- Code Deploy - Automate deployment process into EC2 instances
+- CodePipeline - Continuous Delivery service
+- X-Ray - debug the application
+- Cloud9 – IDE, inside web browser
 
 # Management Tools*	
-
-- Cloud watch – 
-- Cloudformation – 
-- CloudTrail – log the changes 
-- Config – monitor the configuration, visual 
-- OpsWorks 
-- Service Catalog 
-- Systems Manager – patch all the EC2
-- Trusted Advisor – advice security, risks, capacity 
-- Managed services 
+- Cloud watch – Monitoring service
+- Cloudformation – Turning your infrastrure into code (script)
+- CloudTrail – log the changes in the AWS env. (default turned on for 1 week records)
+- Config – monitor the configuration, visual (eg: how on May 4th and 6th)
+- OpsWorks - like EBS, automating (configuring) the env
+- Service Catalog - used by Big companies for Compliance
+- Systems Manager – Managing AWS resources (EC2). Eg. patch maintenance - rollout patch to 1000 of EC2 instances. Group the resources.
+- Trusted Advisor – advice security (eg. port open), risks, capacity 
+- Managed services - No need to worry about EC2, Scaling and etc., it helps - New service
 
 # Media Sevices
-- Elastic Transcoder – resize video to android /ios
+- invented into 2017 (new)
+- Elastic Transcoder – (old service) resize video to android /ios
+- MediaConvert - File based media transcoding service
+- MediaLive - Live video processing service
+- MediaPackage - protects from internet
+- MediaStore - store service
+- MediaTailor - 
 
 # Machine Learning 
-
 - Sagemaker – 
 - Comprehend 
 - Deeplens – physical hardware – camara
@@ -81,43 +87,44 @@
 - Amazon Transcribe – speech recognition – speech to text  
 
 # Analytics *
-- Athena
+- Athena - run SQL queries against S3 bucket. (report excel)
 - EMR – big data solution. To process large data 
 - Cloudsearch 
 - ElasticSearchService
-- Kinesis – bigdata, ingesting large amount of data in cloud
-- Kinesis Video Streams
+- Kinesis – bigdata, ingesting large amount of data into cloud (eg tweets # hashtag)
+- Kinesis Video Streams - 
 - Quicksight – BI tool
-- Data Pipleline – moving the data bw to amazon services
-- Glue – ETL
+- Data Pipleline – moving the data bw diff amazon services
+- Glue – used for ETL
 
 # Security & Identity & Compliance *
 - IAM – Identify Access Management
-- Cognito – Auth service, gives temp access to AWS
-- GuardDuty – malicious activity
-- Inspector – governance tool, check the vulnerability 
+- Cognito – Authentication service, gives temp access to AWS
+- GuardDuty – Monitors for malicious activity
+- Inspector – Agent (to be installed). governance tool, check the vulnerability 
 - Macie – scans S3 for PII data
 - Certificate Manager – manage SSL 
 - CloudHSM – Hardware security Module - stores encryption keys 
 - Directory Service – integrating Active directory
 - WAF – Web Application Firewall – prevent XSS, Sql injection
 - Shield – prevent Ddos attacks 
-- Artifact – compliance report, PCI report 
-# Mobile Service 
+- Artifact – download compliance report, PCI report (downloading & inspecting AWS documentation)
 
+# Mobile Service 
 - Mobile Hub – management console for mobile apps, 
-- PinPoint – push notifications 
+- PinPoint – push notifications to mobile users
 - AWS Appsync – automatically updates the data (offline).  
-- Device Farm 
-- Mobile Analytics 
+- Device Farm - testing apps in real devices
+- Mobile Analytics
 
 # AR / VR 
 - Sumerian – code name 
+
 # Application Integration*
-- Step functions
+- Step functions - way of managing diff Lambda function
 - Amazon MQ
-- SNS – Notification service 
-- SQS -  Decoupling 
+- SNS – Notification service (eg. if bill reaches 10$ then notification will be sent to your phone)
+- SQS - Simple Queue service. Decoupling infrastructure. Queue -> EC2 (for processing), in case EC2 is died the queue still has request data.
 - SWF – Simple Workflow Service 
 
 # Customer Engagement 
@@ -126,22 +133,21 @@
 
 # Business Productivity 
 - Alexa for Business 
-- Chime – Video conference like xoom
-- Work Docs 
+- Chime – Video conference like xoom / google handout
+- Work Docs - like dropbox
 - WorkMail – like office 365
 
 # Desktop and App Streaming 
-
--  Workspaces 
-- AppStream 2.0 like citrix 
+- Workspaces - VDI solution - literally run OS
+- AppStream 2.0 - like citrix 
 
 # IOT
--  IOT device management 
+- IOT device management 
 - Amazon FreeRtos – OS for microcontroller 
 - GreenGrass 
 
 # Game Development
-- GameLift
+- GameLift - to develop VR games in cloud
 
 # (from old course)-----************************------END
 

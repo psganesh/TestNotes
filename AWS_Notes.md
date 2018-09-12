@@ -3,11 +3,11 @@
 
 # (from old course)-----************************------BEGIN
 
-# AWS Global Infrastructre - Exam Tips
+# AWS Global Infrastructure - Exam Tips
   - Understand the difference between a region, an Availability Zone (AZ) and an Edge Location
   - A REGION is the physical location in the world which consists of 2 or more Availability Zones (AZ's) (E.g.: London)
-  - An AZ is one or more discrete Data Centers, each with reduntant power, networking and connectivity, housed in separate facilities.
-  - Edge Locations are endpoints for AWS which are used for caching content. Typically consists of CloudFront, Amazon's Content Delivery Network. (NY <-> Melborn, caching to nearest (sydney) when accessing 2nd time it will be accessed from sydney).
+  - An AZ is one or more discrete Data Centers, each with redundant power, networking and connectivity, housed in separate facilities.
+  - Edge Locations are endpoints for AWS which are used for caching content. Typically consists of CloudFront, Amazon's Content Delivery Network. (NY <-> Melbourne, caching to nearest (Sydney) when accessing 2nd time it will be accessed from sydney).
 
 # AWS Platform Components
 
@@ -15,21 +15,21 @@
 - EC2 (Elastic Compute Cloud) – vm in AWS platform
 - EC2 container service - this is where you manage & run docker container at scale
 - Elastic BeanStalk - (developer who dont understand AWS, they will just upload code to this) then it provision things like auto Scaling groups, Load balancing, EC2 instance and etc
-- Lambda - code - upload into cloud and control it. eg. lambda function will be triggered if any image is uploaded and text will be writting on top (overlay) of it using lambda.
-- Lightsail – Virtual private service, provisoning a server with fixed IP address (RDP access for windows, SSH for linux) - Control through Management console - Like lower version of EC2 :)
+- Lambda - code - upload into cloud and control it. eg. lambda function will be triggered if any image is uploaded and text will be writing on top (overlay) of it using lambda.
+- Lightsail – Virtual private service, provisioning a server with fixed IP address (RDP access for windows, SSH for Linux) - Control through Management console - Like lower version of EC2 :)
 - Batch –  Batch computing in cloud 
 
 # Storage *
 - S3 – simple storage service, object based stored, Files will be stored into bucket
 - EFS – Elastic File System -  Network attach storage - store into volume and mounted to multiple machines
 - Glacier – Data Archival - for eg. need once in a year - cheap
-- Snowball – way to bring in large data into datacenter 
+- Snowball – way to bring in large data into data center 
 - Storage Gateway – Virtual appliance, replicates info back to S3 - 4 types
 
 # Database *
 - RDS – Relational Db service, mysql, postgress, oracle 
 - DynamoDB – Non relational 
-- Elasticache -  caching data - for Eg. to store top 10 products in cache rather than to pull from DB using web service - it freeup the DB to run the other queries.
+- Elasticache -  caching data - for Eg. to store top 10 products in cache rather than to pull from DB using web service - it free up the DB to run the other queries.
 - Red Shift – Data Warehousing or BI - here run complex query (lot time complete, joins & etc) for analysis (for eg. mgmt want to know profit and loss)
 
 # Migration 
@@ -47,8 +47,8 @@
 - Direct Connect – direct line from hdq to amazon cloud / VPC
 
 # Developer Tools 
-- CodeStar – collabrating code
-- CodeCommit – store code. Version controller. Store GitHub respository
+- CodeStar – collaborating code
+- CodeCommit – store code. Version controller. Store GitHub repository
 - Code Build - Compile then run tests then produce software packages ready to deploy
 - Code Deploy - Automate deployment process into EC2 instances
 - CodePipeline - Continuous Delivery service
@@ -57,21 +57,21 @@
 
 # Management Tools*	
 - Cloud watch – Monitoring service
-- Cloudformation – Turning your infrastrure into code (script)
+- Cloud formation – Turning your infrastructure into code (script)
 - CloudTrail – log the changes in the AWS env. (default turned on for 1 week records)
 - Config – monitor the configuration, visual (eg: how on May 4th and 6th)
 - OpsWorks - like EBS, automating (configuring) the env
 - Service Catalog - used by Big companies for Compliance
-- Systems Manager – Managing AWS resources (EC2). Eg. patch maintenance - rollout patch to 1000 of EC2 instances. Group the resources.
+- Systems Manager – Managing AWS resources (EC2). Eg. patch maintenance - roll-out patch to 1000 of EC2 instances. Group the resources.
 - Trusted Advisor – advice security (eg. port open), risks, capacity 
 - Managed services - No need to worry about EC2, Scaling and etc., it helps - New service
 
-# Media Sevices
+# Media Services
 - invented into 2017 (new)
 - Elastic Transcoder – (old service) resize video to android /ios
 - MediaConvert - File based media transcoding service
 - MediaLive - Live video processing service
-- MediaPackage - protects from internet
+- MediaPackage - protects from Internet
 - MediaStore - store service
 - MediaTailor - 
 
@@ -91,7 +91,7 @@
 - EMR – big data solution. To process large data 
 - Cloudsearch 
 - ElasticSearchService
-- Kinesis – bigdata, ingesting large amount of data into cloud (eg tweets # hashtag)
+- Kinesis – bigdata, ingesting large amount of data into cloud (eg tweets # hash tag)
 - Kinesis Video Streams - 
 - Quicksight – BI tool
 - Data Pipleline – moving the data bw diff amazon services
@@ -133,8 +133,8 @@
 
 # Business Productivity 
 - Alexa for Business 
-- Chime – Video conference like xoom / google handout
-- Work Docs - like dropbox
+- Chime – Video conference like xoom / Google handout
+- Work Docs - like drop box
 - WorkMail – like office 365
 
 # Desktop and App Streaming 
@@ -143,7 +143,7 @@
 
 # IOT
 - IOT device management 
-- Amazon FreeRtos – OS for microcontroller 
+- Amazon FreeRtos – OS for micro controller 
 - GreenGrass 
 
 # Game Development
@@ -161,5 +161,4 @@
     - Policy - A document that defines one (or more) permissions. This can be attached to User/Group/Role. Possible for user/group/role to share the same policy.
   - LAB
     - US East (N. Virgina) - New services are launched first in this region.
-    - 
-  
+    

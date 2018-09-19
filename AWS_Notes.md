@@ -161,4 +161,50 @@
     - Policy - A document that defines one (or more) permissions. This can be attached to User/Group/Role. Possible for user/group/role to share the same policy.
   - LAB
     - US East (N. Virgina) - New services are launched first in this region.
+  - IAM is universal (Global). It does not apply to regions at this time.
+  - "root account" -> first setup AWS account (email id). it has complete Admin Access.
+  - New users have no permissions when first Created.
+  - New Users are assigned Access Key Id & Secret Access keys (first created, if lost then regenerate) -> not for login using AWS console -> used to access AWS via API & CLI
+  - arn -> Amazon Resource Name
+  - FAQ????????? https://aws.amazon.com/iam/faqs/
+  
+# ***************** OLD COURSE **********************-- Beg
+# STS – Security Token Service
+- Grants users limited & temp access to AWS resources
+- Federation – SAML, AD, Single sign on 
+- Federation Mobile – FB, amazon, google or openId to login
+- Cross account access – one aws account to access another resource 
+- Federation – Combining list of users from one domain with list of users in another domain. Like from IAM to AD or FB
+- Identity Broker – service that allows you take an identity from point A and join (federate) it with point B
+- Identity Store – AD, FB, Google 
+- Identity – user of service like FB
+- Identity Broker always authenticate with federation (AD, LDAP, FB, Google)  first then STS
+# Active Directory Federation 
+- AssumeRoleWithSAML API 
+- Always authenticated with AD first then AWS
+- SAML – Security Assertion Markup language 
+# Web Identity Federation 
+- Authenticate using Google, FB, LinkedIn 
+- AssumeRoleWithWebIdentity API
+- ARN – Amazon Resource Name
+# Cognito
+- Web identity federation service 
+- User first authenticated with web identity provider (FB). Received auth token, exchanged for temp. aws credentials allowing them to assume an IAM role
+- Provide signup / signin for your apps
+- Access for guest users 
+- Acts identity broker between your app and web ID providers (FB or Google)
+- Recommended for mobile apps runs on aws
+- Uses Push synchronization – to push updates and synchronize user data across multiple devices 
+- SNS is used to silent push notification to all the devices associated with the given user identity 
+- User pools - A user pool is a user directory in Amazon Cognito. With a user pool, your users can sign in to your web or mobile app through Amazon Cognito. Your users can also *sign in through social identity providers* like Facebook or Amazon, and through SAML identity providers.  
+- Identity pools  - Identity pools provide AWS credentials to grant your users access to other AWS services. To enable users in your user pool to access AWS resources, you can configure an identity pool to exchange user pool tokens for AWS credentials  
+- 
+# ***************** OLD COURSE **********************-- End
+
+
+# EC2 (Elastic Compute Cloud)
+  - VM - Pay only for capacity that you actually use
+  - Options
+    - On Demand - 
+    - 
     

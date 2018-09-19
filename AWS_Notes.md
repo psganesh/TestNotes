@@ -204,7 +204,13 @@
 
 # EC2 (Elastic Compute Cloud)
   - VM - Pay only for capacity that you actually use
-  - Options
-    - On Demand - 
+  - Pricing Options:
+    - On Demand 
+      - Fixed rate by the hour or second with no commitment (linux by second & Windows by hours now)
+      - low cost, 
+    - Reserved -> 1 or 3 years terms reserve - significant discount on the hourly charge
+    - Spot -> to bid price (assume, share market price variation) - greater saving if flexible start & end times
+    - Dedicated Hosts -> physical EC2 dedicated for use.
+    
     - 
     

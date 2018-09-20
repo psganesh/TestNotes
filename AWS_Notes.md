@@ -214,12 +214,95 @@
       - Standard RIs (upto 75% off ondemand), Convertible RIs (upto 50%) - change reservations, Scheduled RIs (within timewindow, requires for a day/week/month, eg: every weekend / friday)
     - Spot Instance 
       - to bid price (assume, share market price variation) - greater saving if flexible start & end times (eg: 4am on sunday morning)
-      - (old notes) If you terminate the instance, you have pay for the partial hour
-      - (old notes) If amazon terminate the instance (bid range), you don’t have to pay
+      - eg. Bid at 100$. if spot price goes down to 90$ then no issue (provisioned). if 110$ then those instances will be terminated.
+      - If amazon terminates the instance (bid range), you don’t have to pay (not charged for partial hour)
+      - If you terminate the instance, you will be charged for the complete hour in which the instance ran.
     - Dedicated Hosts 
-      - physical EC2 dedicated for use.
+      - physical EC2 dedicated for use. use existing software licenses.
       - not support multi-tenancy or cloud deployments
       - can be purchased on Demand (hourly), as reservation (upt 70% off ondemand)
   - EC2 Instance Types
-    - 
+    - FIGHT_DR_MC_PX !!!!!!!!!!
+      - F -> Field Programmable Gate Array (FPGA) => Genomics research, Financial analytics, real time video processing, big date & etc
+      - I -> High speed Storage (IOPS) => NoSQL DBs, Date Warehousing etc
+      - G-> Graphics Intensive => Video Encoding / 3D Application Streaming
+      - H -> High Disk Throughput => MapReduce-based workloads, distributed file systems such as HDFS & MapR-FS
+      - T -> cheap general purpose (think T2 Micro) => Webservers / small DBs
+      - D -> Density Storage => Fileservers / Datawarehousing / Hadoop
+      - R -> Memory optimised (RAM) => Memory Intensive Apps/DBs
+      - M -> Main choice for general purpose apps => Application Servers
+      - C -> Compute optimized => CPU Intensive Apps/DBs
+      - P -> Graphics/General purpose GPU (think PICS) => Machine Learning, Bit coin mining etc
+      - X -> Extreme Memory optimized => SAP HANA/Apache Spark etc
+
+# EBS (Elastic Block Storage)
+  - Virtual Disk, Storage volume attached to EC2 Instances. run DB or use like block device
+  - Placed in a specific AZ. Automatically replicated to protect from failure
+  - EBS attached with EC2 is called Root Device Volume. (eg. windows -> C: drive)
+  - Types
+    - General Purpose SSD (GP2)
+      - General purpose, balances both price and perf.
+      - Ratio of 3 IOPS per GB ~ 10,000 IOPS
+      - burst upto 3000 IOPS for extended periods for vol 3334 GiB and above
+     - Provisioned IOPS SSD (IO1)
+       - I/O Intensive such as large relational or NoSQL DB
+       - > 10,000 IOPS (extreme perf)
+       - ~ 20,000 IOPS per volume
+     - Throughput Optimized HDD (ST1)
+       - Low cost, Freq accessed, throughtput intensive workloads
+       - Big Data, Date warehousing, Log Processing
+       - Cannot be a boot volume (eg. not C: drive, can be D:)
+     - Cold HDD (SC1)
+       - Lower cost, infreq accessed workloads
+       - File server
+       - Cannot to be boot volume
+     - Magnetic (Standard)
+       - Previous Generation. BOOTABLE, Lower cost, infreq accessed workloads, lowest storage cost is important (eg. might use it DEV or TESTING environment then move over to SSD)
     
+    - (copied below)
+    - Cannot mount 1 EBS volume to multiple EC2 instances – instead us EFS
+    - Can transfer reserved instance from one AZ to another
+
+# EC2 Lab (copied)
+- AMI – Amazon Machine Instance  (when you create AMI, registerImage is the final process)
+- AMI can be shared to other AWS account 
+- AMI can be changed to public
+- If you make AMI, it will not be immediately available across all regions
+- AMI’s can be only be shared within region.  For other regions do copy
+- Instance type – t2 micro 
+- Default VPC
+- One subnet always will be in one AZ.  Same subnet range will not be shared across AZ.
+- Termination protection – by default its Off
+- Monitoring – cloud watch 
+- Tenancy – dedicated 
+- Advanced Details – user input, Boot instructions (install PHP SDK, apache)
+- Storage – Root, Boot volume
+- By default Root volume can’t be encrypted.  Either bit locker, or encrypt when creating AMI or API.  
+- By Default Root EBS volume will be deleted on termination.  Option can be changed
+- Tags
+- Security Group, SSH, SSL, HTTP. 
+- Source – Custom, Anywhere, My IP.  Anywhere means open to world 
+- Key Pair – Pem file
+- Same private key can be used for multiple EC2
+- Status check –System Status check, Instance Status check 
+- Monitoring, Cloud watch – basic monitoring, CPU. Disk,Nw
+- Standard monitoring – 5 mins 
+- Private key should be protected from read/write from other users. 
+- Unprotected private key file – do chmod 400
+- Unix
+  - Change the permission chmod 400 *.pem
+  - ssh ec2-user@<ip> -i <pem>
+  - sudo yum update -y ->   to update security packages, -y to force update 
+  - yum install httpd –y –>  install apache 
+  - cd /var/www/html 
+  - nano – text editor 
+  - nano index.html 
+  - Add something 
+  - Ctrl X to exit and save 
+  - service httpd start
+  - chkconfig httpd on -  starts automatically with boot
+- Windows
+  - Putty Keygen to convert pem to ppk
+
+# Elastic Load Balancers
+  - 

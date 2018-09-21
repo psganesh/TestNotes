@@ -305,4 +305,69 @@
   - Putty Keygen to convert pem to ppk
 
 # Elastic Load Balancers
+  - Balance the load across multiple instances
+  - 3 types
+    - Application Load Balancers
+      - works at OSI Layer 7. takes clever decision. (for eg: sales.gane.com => route to sales EC2)
+      - Suited for HTTP & HTTPS traffic. Sending specific request to specific web servers. (think: model X tesla car -> route to specific EC2)
+    - Network Load Balancers
+      - layer 4. Extreme speed. costlier.
+      - suited for TCP Traffic. Capable of handling millions of request per sec. (think: tesla car -> 0~2 sec reach -> 60 mph -> super fast)
+    - Classic Load Balancers
+      - legacy. Balance HTTP/HTTPS applications using layer 7 specific features such as X-Forward. 
+   - 504 error (ELB response) means the gateway has timed out. This means that the application not responding within the idle timeout period.
+     - Troubleshoot the application. Is it the web server or Database server?
+   - If you need the IPv4 address of your end user, look for the X-Forwarded-For Header. (ie. to see the public ip address 124.12.3.121, where the request is coming from)
+
+# Route 53 Lab
+  - DNS service
+  - Domain names to 
+    - EC2 instances
+    - Load Balancers
+    - S3 Buckets
+  - Steps
+    - Services >> N/w CDN >> Route 53 >> Create Hosted Zones
+      - First time means -> Register a Domain (eg. imcloudguru.com -> 12$) -> complete purchase (3 days to complete creation)
+      - Create Record Set
+        - A record (A -> IPv4 address, AAAA -> IPv6 address) => Alias (supports A & AAAA) => Map ALB (create a new ApplicationLoadBalancer before that) (can map not only ALB, S3 & etc)
+        - Create ALB
+          - Load Balancers >> Create LB >> Applicaton LB >> Specify (Name: eg.MyALB, Scheme: Internet-facing, IPAddress Type: ipv4, Listeners: HTTP 80, HTTPS 443 if needed, AZ: All) >> Assign Security Groups (eg. MyWebDMZ) >> Configure Routing (Create Target group.eg> MyWebServerGroup. Note: Each target group to only one One LB, Specify Health Checks eg. index.html) >> Register Targets (Add to registered eg. already created EC2 instance) >> CREATE
+   - imcloudguru.com -> ALB -> EC2 instance -> index.html ("Welcome to AWS world..!!!")
+
+# CLI Demo Lab
+  - Commands used in Video
+    - ssh ec2-user@xx.xx.xx.xx -i MyNewKeyPair.pem 
+    - sudo su
+    - aws <commands>
+    - aws s3 ls ==>ERROR: unable to locate credentials. You can configure credentials by running "aws configure"
+    - aws configure (then enter Access key Id, Secret Access key, Default Region: 'eg: us-east1', Default output format: 'eg. text')
+    - aws s3 mb s3://ganeshps123-psg (here mb -> make bucket)
+    - echo "hello AWS" > hello.txt
+    - aws s3 cp hello.txt s3://ganeshps123-psg
+    - aws s3 ls (it will list hello.txt)
+    - able to see in console? - make public - 'ganeshps123-psg'
+  - https://docs.aws.amazon.com/cli/latest/index.html => commands
+  - Least Privilege - Give users min amount of access
+  - Create groups - assign to users. will auto inherit the permissions from group
+  - Secret Access Key - only once. if lost, delete the pair and re-generate it. Need to 'aws configure' again.
+  - Do not use just one access key - create per developer
+  - You can use the CLI on your PC
+
+# EC2 with S3 Role Lab
+  - create role for ex: full access to S3 and attach with EC2 then try following commands
+    - aws s3 ls
+    - sometimes access error still will be shown due to credentials stored in server. Delete them using following steps
+      - cd ~/.aws
+      - rm config
+      - rm credentials
+    - then try 'aws s3 ls' => this time it should list the S3    
+  - https://docs.aws.amazon.com/cli/latest/userguide/cli-config-files.html => check for windows to access credential files
+  - Exam Tips
+    - Roles allow you to not use Access key ID's and Secret Access Keys
+    - Roles are perferred from a security perspective
+    - Roles are controlled by policies
+    - You can change a policy on a role and it will take immediate effect
+    - You can attach or detach roles to running EC2 instances without having to stop or terminate
+
+# How to Encrypt an EBS volume
   - 

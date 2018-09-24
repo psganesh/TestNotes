@@ -397,8 +397,8 @@
     - 2 ways
       - 1. bitlocker - windows
       - 2. create snapshot of root volume >> Snapshots >> Select the newly created root snapshot >> actions >> copy >> specify AZ & SELECT Encryption >> Copy.
-        '>> snapshots >> Actions >> Create Image
-        '>> Images >> AMIs >> Launch >> select the Instance Type and Launch the new instances
+        - then '>> snapshots >> Actions >> Create Image
+        - then '>> Images >> AMIs >> Launch >> select the Instance Type and Launch the new instances
   - EXAM TIPS
     - 1. can encrypt root device volume (the vol of the OS is installed on) using OS level encryption (ex: bitlocker)
     - 2. can encrypt root device vol by first taking a snapshot then copy with encryption then make AMI of this snap and deploy the encrypted root device volume

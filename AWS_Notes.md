@@ -370,4 +370,36 @@
     - You can attach or detach roles to running EC2 instances without having to stop or terminate
 
 # How to Encrypt an EBS volume
-  - 
+  - 1. Additional Volume ?
+    - EC2 >> EBS >> Volume >> Create Volume >> Select Volume type (GP2), size 100 GB, AZ (same AZ where EC2 present).... SELECT Encryption, Selecte Master key (default - aws/ebs) >> Create colume
+    - Actions >> Attach volume >> Select the EC2 instance >> Attach
+    - Note: If you create volume from ENCRYPTED Snapshot, then the volume also will be encrypted.
+    - Commands
+      - ssh *** >> sudo su 
+      - lsblk (=> it will show default attached with root '/' xvda & recently attached volume above xvdf)
+      - file -s /dev/xvdf (=> check file system. Default: "/dev/xvdf: data" -> means no data in the volume and can proceed to create filesystem)
+      - mkfs -t ext4 /dev/dvdf (=> Create file system)
+      - file -s /dev/xvdf (=> now it will show file system which was created just before)
+      - How to mount?
+        - cd /
+        - mkdir filesystem
+        - mount /dev/xvdf /filesystem
+        - lsblk (=> it will show the mountpoint as /filesystem)
+      - unmount?
+        - cd /
+        - umount -d /dev/xvdf
+    - Create snapshot
+      - EBS >> Volume >> after detach >> Actions >> create snapshot (specify description)
+      - view : EBS >> Snapshots >> View all the snapshots here
+      - now you can delete the above created volume. 
+      - Can CREATE volume (EBS >> Snapshots >> Action >> Create Volume (Specify Type, SIze.... note here volume is encrypted because this snapshot was encrypted)). Can attach this created vol to EC2. This time you will see the files which created earlier.
+  - 2. Root Volume ?
+    - 2 ways
+      - 1. bitlocker - windows
+      - 2. create snapshot of root volume >> Snapshots >> Select the newly created root snapshot >> actions >> copy >> specify AZ & SELECT Encryption >> Copy.
+        >> snapshots >> Actions >> Create Image
+        >> Images >> AMIs >> Launch >> select the Instance Type and Launch the new instances
+  - EXAM TIPS
+    - 1. can encrypt root device volume (the vol of the OS is installed on) using OS level encryption (ex: bitlocker)
+    - 2. can encrypt root device vol by first taking a snapshot then copy with encryption then make AMI of this snap and deploy the encrypted root device volume
+    - You can encrypt the additional attached volumes using the console, CLI or API

@@ -404,3 +404,34 @@
     - 2. can encrypt root device vol by first taking a snapshot then copy with encryption then make AMI of this snap and deploy the encrypted root device volume
     - You can encrypt the additional attached volumes using the console, CLI or API
 	
+# RDS 101 - Relations DataBase Service
+  - RDS - OLTP (Online Transaction Processing)
+    - SQL, MySQL, PostgreSQL, Oracle, Aurora, MariaDB
+  - DynamoDB - NoSQL
+    - Database
+      - Collection => Table
+      - Document => Row
+      - key value pairs => Fields
+      (think JSON sample)
+  - Redshift - OLAP (Online Analytical Processing)
+  - Elasticcache - In Memory Caching:
+    - 2 engines: Memecached
+    - Redis
+    
+# RDS Lab
+  - Create RDS DB (MySQL)
+  - Commands for startup script EC2
+    - "#!/bin/bash  
+	yum install httpd php php-mysql -y  
+	yum update -y  
+	chkconfig httpd on  
+	service httpd start  
+	echo "<?php phpinfo();?>" > /var/www/html/index.php
+	cd /var/www/html  
+	wget https://s3.eu-west-2.amazonaws.com/acloudguru-example/connect.php"
+    - Create EC2 instance using above startup script
+    - Change connect.php
+    - Specify EC2 security group (myWebDMZ) as source in Inbound of rds security group with port 3306. ???? i.e. since the security group of RDS and EC2 is different, allow EC2 security Group in RDS inBound. EC2 must be allowed to talk to RDS.
+    
+# RDS Multi-AZ and Read Replicas
+  - 

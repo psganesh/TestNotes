@@ -246,7 +246,7 @@
       - burst upto 3000 IOPS for extended periods for vol 3334 GiB and above
      - Provisioned IOPS SSD (IO1)
        - I/O Intensive such as large relational or NoSQL DB
-       - > 10,000 IOPS (extreme perf)
+       - '> 10,000 IOPS (extreme perf)
        - ~ 20,000 IOPS per volume
      - Throughput Optimized HDD (ST1)
        - Low cost, Freq accessed, throughtput intensive workloads
@@ -397,9 +397,10 @@
     - 2 ways
       - 1. bitlocker - windows
       - 2. create snapshot of root volume >> Snapshots >> Select the newly created root snapshot >> actions >> copy >> specify AZ & SELECT Encryption >> Copy.
-        >> snapshots >> Actions >> Create Image
-        >> Images >> AMIs >> Launch >> select the Instance Type and Launch the new instances
+        '>> snapshots >> Actions >> Create Image
+        '>> Images >> AMIs >> Launch >> select the Instance Type and Launch the new instances
   - EXAM TIPS
     - 1. can encrypt root device volume (the vol of the OS is installed on) using OS level encryption (ex: bitlocker)
     - 2. can encrypt root device vol by first taking a snapshot then copy with encryption then make AMI of this snap and deploy the encrypted root device volume
     - You can encrypt the additional attached volumes using the console, CLI or API
+	

@@ -434,4 +434,35 @@
     - Specify EC2 security group (myWebDMZ) as source in Inbound of rds security group with port 3306. ???? i.e. since the security group of RDS and EC2 is different, allow EC2 security Group in RDS inBound. EC2 must be allowed to talk to RDS.
     
 # RDS Multi-AZ and Read Replicas
+  - 2 types of backups
+    - Automated Backups
+      - recover at any point of time within a "retention period" (1~35 days)
+      - full daily snapshot. AWS will choose first the most recent daily back up. recovery down to a second    
+      - enabled by default. stored in S3. free data storage 10GB RDS = 10GB S3 storage
+      - Backups are taken on defined window. suspended during that time.
+    - Database snapshots
+      - Manual (user initiated). They are stored even after delete the original RDS instance, unlike automated backups.
+  - Restoring backups => restored version of DB will be new RDS instance with new DNS endpoint (ie., orginal.eu-west-1.rds.amazonaws.com => restored.eu-west-1.rds.amazonaws.com)
+  - Encryption
+    - supported for MySQL, Oracle, SQL Server, PostgreSQL, MariaDB & Aurora.
+    - done using AWS Key Management service (KMS).
+    - once RDS instance is encrypted, data stored also encrypted.
+    - At present, encrypting an existing DB instance is not supported. 
+    - To use amazon RDS encryption for existing, 1. create snapshot 2. copy snaphot 3. encrypt the copy
+  - Multi AZ
+    - DR only. (US-EAST-1A <=> US-EAST-1B). Any change in 1A will be synchronizely replicated to 1B (diff AZ). If 1A is failed due to Disaster, then 1B will be pointed.
+    - RDS is dealt with DNS (gane.xxxxxxx.eu-west-1.rds.amazonaws.com). if primary DB is failed, then the secondary IP address will be mapped with this DNS (during fail over).
+    - not for improving performance. Only for DR.
+    - SQL Server, Oracle, MySQL Server, Postgre SQL, MariaDB
+  - Read Replicas
+    - 5 Read replicas for production for default. New writes will be pushed to other replica DB.
+    - allow you to have a read-only copy of your production DB. This is achieved by using Async replication from primary RDS instance to the read replica.
+    - mainly for very read-heavy DB workloads.
+    - MySQL Server, PostgreSQL, MariaDB, Aurora
+    - used for SCALING, NOT for DR. Must have auto backup turned on in order to deploy a read replica. Upto 5 readreplica of any DB.
+    - Read replica of Read replica is possible (but watch out for latency). Each read replica has its own DNS end point.
+    - Can have RR that multi AZ. Can create RR of multi AZ source DB.
+    - RR can be promoted to be their own DB. This breaks the replication. (For eg. if not using all RR for production, you can use for other DB purpose)
+    - can have RR in a 2nd region.
+# Elasticache 101
   - 

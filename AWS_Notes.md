@@ -465,4 +465,32 @@
     - RR can be promoted to be their own DB. This breaks the replication. (For eg. if not using all RR for production, you can use for other DB purpose)
     - can have RR in a 2nd region.
 # Elasticache 101
+  - In-memory cache. (e.g. Results of Querying top 10 products in Elasticache than accessing DB)
+  - Improve latency & thoughput for read-heavy application workloads (such as social networking, gaming, media sharing, Q&A portals & recommendation engines)
+  - Types
+    - Memcached
+      - widely adopted. NO persistence. Pool that grow and shrink like EC2 Auto scaling group (i.e., auto adds web server).
+      - Use Case
+        - Is Object caching is primary goal, for ex to offload your DB?
+	- Simple caching model?
+	- Are you planning on running large cache nodes and require multithreaded performance with utilization of multiple CPU cores?
+	- scale your cache horizontally as you grow?
+    - Redis
+      - open source in-memory key-value store that supports data structure such as sorted sets and Lists.
+      - Support master/slave replication & Multi-AZ to achieve cross AZ redundancy.
+      - like relation DB. failover like RDS DB failover
+      - Use Case
+        - Advance types such as LISTS, Hashes & Sets?
+	- Sorting and ranking datasets in memory help you such as with LEADERBOARDS?
+	- Is persistence of your key store important?
+	- want to run multiple AWS AZ with failover?
+	- Pub/Sub capabilities are needed?
+   - TIPS
+     - Elasticache is a good choice if your DB is paricularly read-heavy and not prone to frequent changing
+     - REDSHIFT is a good answer if the reason your database is feeling stress is because management keep running OLAP transcations on it etc.
+     - Dataware housing questions => choose Redshift
+# EC2 Summary
+  - Developer Associate exam is Server less focused than EC2.
+# S3 (Simple Storage Service)
+  - Object based Storage (files, images, web pages... NOT for OS, DB). Not Block Storage.
   - 

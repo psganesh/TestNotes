@@ -493,4 +493,71 @@
   - Developer Associate exam is Server less focused than EC2.
 # S3 (Simple Storage Service)
   - Object based Storage (files, images, web pages... NOT for OS, DB). Not Block Storage.
-  - 
+  - Not Suitable to install an OS or running a DB on.
+  - Files can be from 0 - 5 TB. Unlimited Storage.
+  - Files are stored in buckets (folders).
+  - S3 is a universal namespace. (like website - DNS ). Ex. https://s3-eu-west-1.amazonaws.com/ganeshps123
+  - Read after Write consistency for PUTS of new Objects
+  - Eventual Consistency for overwrite PUTS and DELETES (can take sometime to propagate)
+  - S3 Storage classes/Tiers:
+    - S3 => Durable, immediately available, Frequently accessed
+    - S3 - IA => Durable, immediately available, IN-Frequently accessed
+    - S3 - One Zone IA => Same as IA. However, data is stored in a single AZ only.
+    - S3 - Reduced Redundancy Storage (data this is easily reproducible, such as thumbnails etc)
+    - Glacier => Archived data, where you can wait 3-5 hrs before accessing
+  - Remember the core fundamentals of an S3 Object:
+    - key (name of the file)
+    - value (data)
+    - version ID
+    - Metadata
+    - Subresources - bucket-specific configuration:
+      - Bucket Policies, Access Control Lists
+      - Cross Origin Resource sharing (CORS)
+      - Transfer Acceleration
+  - Successful uploads will generate a HTTP 200 status code - when you use CLI or API (not in console)
+  - FAQ : https://aws.amazon.com/s3/faqs
+  - S3 Charges
+    - Storage per GB
+    - Requests (Get, Put, Copy, etc)
+    - Storage Management Pricing
+      - Inventory, Analytics, and Object Tags
+    - Data Management Pricing
+      - Data transferred out of S3
+    - Transfer Acceleration
+      - Use of CloudFront to Optimize transfers
+  - S3 Security
+    - By Default, all newly created buckets are PRIVATE.
+    - Bucket's Access control
+      - Bucket Policies => Applied at a bucket level.
+      - Access Control Lists => Applied at an object level.
+    - S3 buckets can be configured to create access logs, which log all request made to the S3 bucket. These logs can be written to another bucket.
+  - Sample Bucket Policy
+    - "{
+	  "Id": "Policy1538559530437",
+	  "Version": "2012-10-17",
+	  "Statement": [
+	    {
+	      "Sid": "Stmt1538559526441",
+	      "Action": [
+		"s3:GetBucketPolicy"
+	      ],
+	      "Effect": "Allow",
+	      "Resource": "arn:aws:s3:::ganeshps123-psg",
+	      "Principal": "\*"
+	    }
+	  ]
+	}"
+  - S3 Encryption
+    - Encryption In-Transit
+      - SSL/TLS (HTTPS) => over the network
+    - Encryption At Rest
+      - Server Side Encryption
+        - S3 Managed Keys - SSE-S3 
+	- AWS Key management service, managed keys, SSE-KMS
+	- Customer provided keys, SSE-C
+      - Client Side Encrption
+    - To enforce the use of encrption for your files stored in S3, use an S3 Bucket Policy to deny all PUT requests that dont include the x-amz-server-side-encryption parameter in the request header:
+      - 2 options
+        - x-amz-server-side-encryption:AES256
+	- x-amz-server-side-encryption:aws:kms
+    - 

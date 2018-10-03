@@ -552,9 +552,9 @@
       - SSL/TLS (HTTPS) => over the network
     - Encryption At Rest
       - Server Side Encryption
-        - S3 Managed Keys - SSE-S3 
-	- AWS Key management service, managed keys, SSE-KMS
-	- Customer provided keys, SSE-C
+        - S3 Managed Keys - SSE\-S3 
+	- AWS Key management service, managed keys, SSE\-KMS
+	- Customer provided keys, SSE\-C
       - Client Side Encrption
     - To enforce the use of encrption for your files stored in S3, use an S3 Bucket Policy to deny all PUT requests that dont include the x-amz-server-side-encryption parameter in the request header:
       - 2 options

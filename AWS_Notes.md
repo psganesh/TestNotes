@@ -552,12 +552,32 @@
       - SSL/TLS (HTTPS) => over the network
     - Encryption At Rest
       - Server Side Encryption
-        - S3 Managed Keys - SSE\-S3 
-	- AWS Key management service, managed keys, SSE\-KMS
-	- Customer provided keys, SSE\-C
+        - S3 Managed Keys (SSE-S3)
+	- AWS Key management service, managed keys(SSE-KMS)
+	- Customer provided keys => SSE-C
       - Client Side Encrption
     - To enforce the use of encrption for your files stored in S3, use an S3 Bucket Policy to deny all PUT requests that dont include the x-amz-server-side-encryption parameter in the request header:
       - 2 options
         - x-amz-server-side-encryption:AES256
 	- x-amz-server-side-encryption:aws:kms
-    - 
+# Setup Encryption On an S3 Bucket
+  - {
+    "Id": "Policy1538564409891",
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Stmt1538564407861",
+            "Action": [
+                "s3:PutObject"
+            ],
+            "Effect": "Deny",
+            "Resource": "arn:aws:s3:::ganeshps1234-psg/*",
+            "Condition": {
+                "NumericNotEquals": {
+                    "s3:x-amz-server-side-encryption": "aws:kms"
+                }
+            },
+            "Principal": "*"
+        }
+    ]
+}

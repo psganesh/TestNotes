@@ -560,24 +560,36 @@
       - 2 options
         - x-amz-server-side-encryption:AES256
 	- x-amz-server-side-encryption:aws:kms
-# Setup Encryption On an S3 Bucket
-  - {
-    "Id": "Policy1538564409891",
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "Stmt1538564407861",
-            "Action": [
-                "s3:PutObject"
-            ],
-            "Effect": "Deny",
-            "Resource": "arn:aws:s3:::ganeshps1234-psg/*",
-            "Condition": {
-                "NumericNotEquals": {
-                    "s3:x-amz-server-side-encryption": "aws:kms"
-                }
-            },
-            "Principal": "*"
-        }
-    ]
-}
+  - Setup Encryption On an S3 Bucket
+	  - {
+	    "Id": "Policy1538564409891",
+	    "Version": "2012-10-17",
+	    "Statement": [
+		{
+		    "Sid": "Stmt1538564407861",
+		    "Action": [
+			"s3:PutObject"
+		    ],
+		    "Effect": "Deny",
+		    "Resource": "arn:aws:s3:::ganeshps1234-psg/*",
+		    "Condition": {
+			"NumericNotEquals": {
+			    "s3:x-amz-server-side-encryption": "aws:kms"
+			}
+		    },
+		    "Principal": "*"
+		}
+	    ]
+	}
+
+  - CORS Configuration Lab
+	  - "<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+		<CORSRule>
+		    <AllowedOrigin>http://myindex3psg.s3-website.ap-south-1.amazonaws.com</AllowedOrigin>
+		    <AllowedMethod>GET</AllowedMethod>
+		    <MaxAgeSeconds>3000</MaxAgeSeconds>
+		    <AllowedHeader>Authorization</AllowedHeader>
+		</CORSRule>
+		</CORSConfiguration>
+		"
+# 

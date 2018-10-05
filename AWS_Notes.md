@@ -583,13 +583,13 @@
 	}
 
   - CORS Configuration Lab
-	  - "<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
-		<CORSRule>
-		    <AllowedOrigin>http://myindex3psg.s3-website.ap-south-1.amazonaws.com</AllowedOrigin>
-		    <AllowedMethod>GET</AllowedMethod>
-		    <MaxAgeSeconds>3000</MaxAgeSeconds>
-		    <AllowedHeader>Authorization</AllowedHeader>
-		</CORSRule>
-		</CORSConfiguration>
-		"
-# 
+	  - "&lt;!-- Sample policy --&gt;
+		&lt;CORSConfiguration&gt;
+			&lt;CORSRule&gt;
+				&lt;AllowedOrigin&gt;http://myindexprojectpsg.s3-website.ap-south-1.amazonaws.com/&lt;/AllowedOrigin&gt;
+				&lt;AllowedMethod&gt;GET&lt;/AllowedMethod&gt;
+				&lt;MaxAgeSeconds&gt;3000&lt;/MaxAgeSeconds&gt;
+				&lt;AllowedHeader&gt;Authorization&lt;/AllowedHeader&gt;
+			&lt;/CORSRule&gt;
+		&lt;/CORSConfiguration&gt;"
+#  

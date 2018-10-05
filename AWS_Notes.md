@@ -592,4 +592,18 @@
 				&lt;AllowedHeader&gt;Authorization&lt;/AllowedHeader&gt;
 			&lt;/CORSRule&gt;
 		&lt;/CORSConfiguration&gt;"
-#  
+# CloudFront
+  - Edge Location 
+    - This is the location where content will be cached. This is separate to an AWS Region/AZ.
+  - Origin
+    - This is the origin of all the files that the CDN will distribute. Origins can be an S3 bucket, EC2 instance, ELB, Route53.
+  - Distribution
+    - This is the name given the CDN, which consists of a collection of Edge Locations.
+    - Web Distribution => Typically used for websites
+    - RTMP => (Adobe Real time messaging protocal) used for media streaming.
+  - Edge locations are not just READ only - you can WRITE to them too. (i.e., PUT an object on to them)
+  - CloudFront Edge Locations are utilised by S3 Transfer Acceleration to reduce latency for S3 uploads.
+  - Objects  are cached for life of the TTL (Time to Live).
+  - You can clear cached objects, but you will be charege.
+  - LAB
+    - 

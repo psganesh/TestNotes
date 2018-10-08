@@ -512,8 +512,8 @@
     - Metadata
     - Subresources - bucket-specific configuration:
       - Bucket Policies, Access Control Lists
-      - Cross Origin Resource sharing (CORS)
-      - Transfer Acceleration
+      - Cross Origin Resource sharing (CORS) (=>accessing files in another bucket)
+      - Transfer Acceleration (=>using CloudFront)
   - Successful uploads will generate a HTTP 200 status code - when you use CLI or API (not in console)
   - FAQ : https://aws.amazon.com/s3/faqs
   - S3 Charges
@@ -553,7 +553,7 @@
     - Encryption At Rest
       - Server Side Encryption
         - S3 Managed Keys (SSE-S3)
-	- AWS Key management service, managed keys(SSE-KMS)
+	- AWS Key management service, managed keys(SSE-KMS) (=> has audit features like who used keys last time etc)
 	- Customer provided keys => SSE-C
       - Client Side Encrption
     - To enforce the use of encrption for your files stored in S3, use an S3 Bucket Policy to deny all PUT requests that dont include the x-amz-server-side-encryption parameter in the request header:
@@ -603,7 +603,16 @@
     - RTMP => (Adobe Real time messaging protocal) used for media streaming.
   - Edge locations are not just READ only - you can WRITE to them too. (i.e., PUT an object on to them)
   - CloudFront Edge Locations are utilised by S3 Transfer Acceleration to reduce latency for S3 uploads.
-  - Objects  are cached for life of the TTL (Time to Live).
-  - You can clear cached objects, but you will be charege.
-  - LAB
-    - 
+  - Objects  are cached for life of the TTL (Time to Live). (Default 24 hours)
+  - You can clear cached objects, but you will be charge. (invalidation)
+  
+# S3 Performance Optimization - Exam Tips
+  - 1. GET-Intensive workloads => use CloudFront
+  - 2. Mixed workloads => Avoid sequential key names (S3 Objects). Use Random prefix like a hex hash 'eg. 7d4532-xxxx' to prevent multiple objects being stored on the same partition.
+  - In July 2018, Amazon increase S3 performance
+    - 3,500 put requests per second
+    - 5,500 get requests
+  - FAQ: https://aws.amazon.com/s3/faqs
+  
+# Serverless 101
+  - 

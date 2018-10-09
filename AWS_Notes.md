@@ -630,4 +630,15 @@
   - Lambda can do things globally. (for e.g. used to backup S3 buckets to other S3 buckets)
   - Know your trigger.
 # API Gateway
-  - 
+  - Think Waiters in hotel to serve food. (Customer -> waiter -> chef)
+  - has caching capabilities 
+  - low cost, scales automatically
+  - can throttle API Gateway to prevent attacks (same-origion-policy)
+  - log results to CloudWatch
+  - Enable CORS if multiple domains
+  - CORS is enforced by client
+# Build Simple Serverless
+  - Create Lambda => Create API GateWay
+  - Create S3 
+    - ?????
+# 

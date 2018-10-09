@@ -14,8 +14,8 @@
 # Compute *
 - EC2 (Elastic Compute Cloud) – vm in AWS platform
 - EC2 container service - this is where you manage & run docker container at scale
-- Elastic BeanStalk - (developer who dont understand AWS, they will just upload code to this) then it provision things like auto Scaling groups, Load balancing, EC2 instance and etc
-- Lambda - code - upload into cloud and control it. eg. lambda function will be triggered if any image is uploaded and text will be writing on top (overlay) of it using lambda.
+- Elastic BeanStalk - (developer who don't understand AWS, they will just upload code to this) then it provision things like auto Scaling groups, Load balancing, EC2 instance and etc
+- Lambda - code - upload into cloud and control it. E.g., lambda function will be triggered if any image is uploaded and text will be writing on top (overlay) of it using lambda.
 - Lightsail – Virtual private service, provisioning a server with fixed IP address (RDP access for windows, SSH for Linux) - Control through Management console - Like lower version of EC2 :)
 - Batch –  Batch computing in cloud 
 
@@ -30,21 +30,21 @@
 - RDS – Relational Db service, mysql, postgress, oracle 
 - DynamoDB – Non relational 
 - Elasticache -  caching data - for Eg. to store top 10 products in cache rather than to pull from DB using web service - it free up the DB to run the other queries.
-- Red Shift – Data Warehousing or BI - here run complex query (lot time complete, joins & etc) for analysis (for eg. mgmt want to know profit and loss)
+- Red Shift – Data Warehousing or BI - here run complex query (lot time complete, joins & etc) for analysis (for e.g. mgmt want to know profit and loss)
 
 # Migration 
 - AWS Migration Hub – track your application as you migrate to AWS and integrate with other services within migration framework
-- Application Discovery service - Automated discover the dependencies. Eg: sharepoint or dependency with DB
-- Database migration service - for eg: On premises DB into AWS
-- Server migration service - for eg: server to migrate to AWS
+- Application Discovery service - Automated discover the dependencies. Eg: share-point or dependency with DB
+- Database migration service - for e.g: On premises DB into AWS
+- Server migration service - for e,g: server to migrate to AWS
 - Snowball - migrate TB data into AWS
 
 # Networking & Content Delivery*
 - VPC – virtual private cloud.  Configure your own private cloud (firewall, AZ, N/W side IP range, route tables and etc)
-- CloudFront – CDN,  stores your image/video closer to your AZ, edgelocation
+- CloudFront – CDN,  stores your image/video closer to your AZ, edge location
 - Route53 – DNS service 
 - API Gateway – Create own API to talk to other services
-- Direct Connect – direct line from hdq to amazon cloud / VPC
+- Direct Connect – direct line from HDQ to amazon cloud / VPC
 
 # Developer Tools 
 - CodeStar – collaborating code
@@ -58,7 +58,7 @@
 # Management Tools*	
 - Cloud watch – Monitoring service
 - Cloud formation – Turning your infrastructure into code (script)
-- CloudTrail – log the changes in the AWS env. (default turned on for 1 week records)
+- CloudTrail – log the changes in the AWS ENV. (default turned on for 1 week records)
 - Config – monitor the configuration, visual (eg: how on May 4th and 6th)
 - OpsWorks - like EBS, automating (configuring) the env
 - Service Catalog - used by Big companies for Compliance
@@ -78,7 +78,7 @@
 # Machine Learning 
 - Sagemaker – 
 - Comprehend 
-- Deeplens – physical hardware – camara
+- Deeplens – physical hardware – camera
 - Lex
 - Machine learning 
 - Polly – text to voice 
@@ -113,7 +113,7 @@
 # Mobile Service 
 - Mobile Hub – management console for mobile apps, 
 - PinPoint – push notifications to mobile users
-- AWS Appsync – automatically updates the data (offline).  
+- AWS Appsync – automatically updates the data (off-line).  
 - Device Farm - testing apps in real devices
 - Mobile Analytics
 
@@ -125,7 +125,7 @@
 - Amazon MQ
 - SNS – Notification service (eg. if bill reaches 10$ then notification will be sent to your phone)
 - SQS - Simple Queue service. Decoupling infrastructure. Queue -> EC2 (for processing), in case EC2 is died the queue still has request data.
-- SWF – Simple Workflow Service 
+- SWF – Simple Work-flow Service 
 
 # Customer Engagement 
 - Amazon Connect
@@ -172,7 +172,7 @@
 # STS – Security Token Service
 - Grants users limited & temp access to AWS resources
 - Federation – SAML, AD, Single sign on 
-- Federation Mobile – FB, amazon, google or openId to login
+- Federation Mobile – FB, amazon, Google or openId to login
 - Cross account access – one aws account to access another resource 
 - Federation – Combining list of users from one domain with list of users in another domain. Like from IAM to AD or FB
 - Identity Broker – service that allows you take an identity from point A and join (federate) it with point B
@@ -211,16 +211,16 @@
     - Reserved Instance
       - contract with AWS, 1 or 3 years terms reserve - significant discount on the hourly charge
       - steady state or predictable usage appl, reserved capacity
-      - Standard RIs (upto 75% off ondemand), Convertible RIs (upto 50%) - change reservations, Scheduled RIs (within timewindow, requires for a day/week/month, eg: every weekend / friday)
+      - Standard RIs (up-to 75% off on-demand), Convertible RIs (up-to 50%) - change reservations, Scheduled RIs (within timewindow, requires for a day/week/month, eg: every weekend / friday)
     - Spot Instance 
       - to bid price (assume, share market price variation) - greater saving if flexible start & end times (eg: 4am on sunday morning)
-      - eg. Bid at 100$. if spot price goes down to 90$ then no issue (provisioned). if 110$ then those instances will be terminated.
+      - e.g. Bid at 100$. if spot price goes down to 90$ then no issue (provisioned). if 110$ then those instances will be terminated.
       - If amazon terminates the instance (bid range), you don’t have to pay (not charged for partial hour)
       - If you terminate the instance, you will be charged for the complete hour in which the instance ran.
     - Dedicated Hosts 
       - physical EC2 dedicated for use. use existing software licenses.
       - not support multi-tenancy or cloud deployments
-      - can be purchased on Demand (hourly), as reservation (upt 70% off ondemand)
+      - can be purchased on Demand (hourly), as reservation (up-to 70% off on-demand)
   - EC2 Instance Types
     - FIGHT_DR_MC_PX !!!!!!!!!!
       - F -> Field Programmable Gate Array (FPGA) => Genomics research, Financial analytics, real time video processing, big date & etc
@@ -229,7 +229,7 @@
       - H -> High Disk Throughput => MapReduce-based workloads, distributed file systems such as HDFS & MapR-FS
       - T -> cheap general purpose (think T2 Micro) => Webservers / small DBs
       - D -> Density Storage => Fileservers / Datawarehousing / Hadoop
-      - R -> Memory optimised (RAM) => Memory Intensive Apps/DBs
+      - R -> Memory optimized (RAM) => Memory Intensive Apps/DBs
       - M -> Main choice for general purpose apps => Application Servers
       - C -> Compute optimized => CPU Intensive Apps/DBs
       - P -> Graphics/General purpose GPU (think PICS) => Machine Learning, Bit coin mining etc
@@ -243,13 +243,13 @@
     - General Purpose SSD (GP2)
       - General purpose, balances both price and perf.
       - Ratio of 3 IOPS per GB ~ 10,000 IOPS
-      - burst upto 3000 IOPS for extended periods for vol 3334 GiB and above
+      - burst up-to 3000 IOPS for extended periods for vol 3334 GiB and above
      - Provisioned IOPS SSD (IO1)
        - I/O Intensive such as large relational or NoSQL DB
        - '> 10,000 IOPS (extreme perf)
        - ~ 20,000 IOPS per volume
      - Throughput Optimized HDD (ST1)
-       - Low cost, Freq accessed, throughtput intensive workloads
+       - Low cost, Freq accessed, throughput intensive workloads
        - Big Data, Date warehousing, Log Processing
        - Cannot be a boot volume (eg. not C: drive, can be D:)
      - Cold HDD (SC1)
@@ -331,7 +331,7 @@
       - Create Record Set
         - A record (A -> IPv4 address, AAAA -> IPv6 address) => Alias (supports A & AAAA) => Map ALB (create a new ApplicationLoadBalancer before that) (can map not only ALB, S3 & etc)
         - Create ALB
-          - Load Balancers >> Create LB >> Applicaton LB >> Specify (Name: eg.MyALB, Scheme: Internet-facing, IPAddress Type: ipv4, Listeners: HTTP 80, HTTPS 443 if needed, AZ: All) >> Assign Security Groups (eg. MyWebDMZ) >> Configure Routing (Create Target group.eg> MyWebServerGroup. Note: Each target group to only one One LB, Specify Health Checks eg. index.html) >> Register Targets (Add to registered eg. already created EC2 instance) >> CREATE
+          - Load Balancers >> Create LB >> Application LB >> Specify (Name: eg.MyALB, Scheme: Internet-facing, IPAddress Type: ipv4, Listeners: HTTP 80, HTTPS 443 if needed, AZ: All) >> Assign Security Groups (eg. MyWebDMZ) >> Configure Routing (Create Target group.eg> MyWebServerGroup. Note: Each target group to only one One LB, Specify Health Checks eg. index.html) >> Register Targets (Add to registered eg. already created EC2 instance) >> CREATE
    - imcloudguru.com -> ALB -> EC2 instance -> index.html ("Welcome to AWS world..!!!")
 
 # CLI Demo Lab
@@ -364,20 +364,20 @@
   - https://docs.aws.amazon.com/cli/latest/userguide/cli-config-files.html => check for windows to access credential files
   - Exam Tips
     - Roles allow you to not use Access key ID's and Secret Access Keys
-    - Roles are perferred from a security perspective
+    - Roles are preferred from a security perspective
     - Roles are controlled by policies
     - You can change a policy on a role and it will take immediate effect
     - You can attach or detach roles to running EC2 instances without having to stop or terminate
 
 # How to Encrypt an EBS volume
   - 1. Additional Volume ?
-    - EC2 >> EBS >> Volume >> Create Volume >> Select Volume type (GP2), size 100 GB, AZ (same AZ where EC2 present).... SELECT Encryption, Selecte Master key (default - aws/ebs) >> Create colume
+    - EC2 >> EBS >> Volume >> Create Volume >> Select Volume type (GP2), size 100 GB, AZ (same AZ where EC2 present).... SELECT Encryption, Select Master key (default - aws/ebs) >> Create column
     - Actions >> Attach volume >> Select the EC2 instance >> Attach
     - Note: If you create volume from ENCRYPTED Snapshot, then the volume also will be encrypted.
     - Commands
       - ssh *** >> sudo su 
       - lsblk (=> it will show default attached with root '/' xvda & recently attached volume above xvdf)
-      - file -s /dev/xvdf (=> check file system. Default: "/dev/xvdf: data" -> means no data in the volume and can proceed to create filesystem)
+      - file -s /dev/xvdf (=> check file system. Default: "/dev/xvdf: data" -> means no data in the volume and can proceed to create file-system)
       - mkfs -t ext4 /dev/dvdf (=> Create file system)
       - file -s /dev/xvdf (=> now it will show file system which was created just before)
       - How to mount?
@@ -405,7 +405,7 @@
     - You can encrypt the additional attached volumes using the console, CLI or API
 	
 # RDS 101 - Relations DataBase Service
-  - RDS - OLTP (Online Transaction Processing)
+  - RDS - OLTP (On-line Transaction Processing)
     - SQL, MySQL, PostgreSQL, Oracle, Aurora, MariaDB
   - DynamoDB - NoSQL
     - Database
@@ -413,7 +413,7 @@
       - Document => Row
       - key value pairs => Fields
       (think JSON sample)
-  - Redshift - OLAP (Online Analytical Processing)
+  - Redshift - OLAP (On-line Analytical Processing)
   - Elasticcache - In Memory Caching:
     - 2 engines: Memecached
     - Redis
@@ -442,15 +442,15 @@
       - Backups are taken on defined window. suspended during that time.
     - Database snapshots
       - Manual (user initiated). They are stored even after delete the original RDS instance, unlike automated backups.
-  - Restoring backups => restored version of DB will be new RDS instance with new DNS endpoint (ie., orginal.eu-west-1.rds.amazonaws.com => restored.eu-west-1.rds.amazonaws.com)
+  - Restoring backups => restored version of DB will be new RDS instance with new DNS endpoint (ie., original.eu-west-1.rds.amazonaws.com => restored.eu-west-1.rds.amazonaws.com)
   - Encryption
     - supported for MySQL, Oracle, SQL Server, PostgreSQL, MariaDB & Aurora.
     - done using AWS Key Management service (KMS).
     - once RDS instance is encrypted, data stored also encrypted.
     - At present, encrypting an existing DB instance is not supported. 
-    - To use amazon RDS encryption for existing, 1. create snapshot 2. copy snaphot 3. encrypt the copy
+    - To use amazon RDS encryption for existing, 1. create snapshot 2. copy snapshot 3. encrypt the copy
   - Multi AZ
-    - DR only. (US-EAST-1A <=> US-EAST-1B). Any change in 1A will be synchronizely replicated to 1B (diff AZ). If 1A is failed due to Disaster, then 1B will be pointed.
+    - DR only. (US-EAST-1A <=> US-EAST-1B). Any change in 1A will be synchronously replicated to 1B (diff AZ). If 1A is failed due to Disaster, then 1B will be pointed.
     - RDS is dealt with DNS (gane.xxxxxxx.eu-west-1.rds.amazonaws.com). if primary DB is failed, then the secondary IP address will be mapped with this DNS (during fail over).
     - not for improving performance. Only for DR.
     - SQL Server, Oracle, MySQL Server, Postgre SQL, MariaDB
@@ -459,7 +459,7 @@
     - allow you to have a read-only copy of your production DB. This is achieved by using Async replication from primary RDS instance to the read replica.
     - mainly for very read-heavy DB workloads.
     - MySQL Server, PostgreSQL, MariaDB, Aurora
-    - used for SCALING, NOT for DR. Must have auto backup turned on in order to deploy a read replica. Upto 5 readreplica of any DB.
+    - used for SCALING, NOT for DR. Must have auto backup turned on in order to deploy a read replica. Up-to 5 readreplica of any DB.
     - Read replica of Read replica is possible (but watch out for latency). Each read replica has its own DNS end point.
     - Can have RR that multi AZ. Can create RR of multi AZ source DB.
     - RR can be promoted to be their own DB. This breaks the replication. (For eg. if not using all RR for production, you can use for other DB purpose)
@@ -473,7 +473,7 @@
       - Use Case
         - Is Object caching is primary goal, for ex to offload your DB?
 	- Simple caching model?
-	- Are you planning on running large cache nodes and require multithreaded performance with utilization of multiple CPU cores?
+	- Are you planning on running large cache nodes and require multi-threaded performance with utilization of multiple CPU cores?
 	- scale your cache horizontally as you grow?
     - Redis
       - open source in-memory key-value store that supports data structure such as sorted sets and Lists.
@@ -496,7 +496,7 @@
   - Not Suitable to install an OS or running a DB on.
   - Files can be from 0 - 5 TB. Unlimited Storage.
   - Files are stored in buckets (folders).
-  - S3 is a universal namespace. (like website - DNS ). Ex. https://s3-eu-west-1.amazonaws.com/ganeshps123
+  - S3 is a universal name-space. (like website - DNS ). Ex. https://s3-eu-west-1.amazonaws.com/ganeshps123
   - Read after Write consistency for PUTS of new Objects
   - Eventual Consistency for overwrite PUTS and DELETES (can take sometime to propagate)
   - S3 Storage classes/Tiers:
@@ -509,7 +509,7 @@
     - key (name of the file)
     - value (data)
     - version ID
-    - Metadata
+    - Meta data
     - Subresources - bucket-specific configuration:
       - Bucket Policies, Access Control Lists
       - Cross Origin Resource sharing (CORS) (=>accessing files in another bucket)
@@ -556,7 +556,7 @@
 	- AWS Key management service, managed keys(SSE-KMS) (=> has audit features like who used keys last time etc)
 	- Customer provided keys => SSE-C
       - Client Side Encrption
-    - To enforce the use of encrption for your files stored in S3, use an S3 Bucket Policy to deny all PUT requests that dont include the x-amz-server-side-encryption parameter in the request header:
+    - To enforce the use of encrption for your files stored in S3, use an S3 Bucket Policy to deny all PUT requests that don't include the x-amz-server-side-encryption parameter in the request header:
       - 2 options
         - x-amz-server-side-encryption:AES256
 	- x-amz-server-side-encryption:aws:kms
@@ -600,9 +600,9 @@
   - Distribution
     - This is the name given the CDN, which consists of a collection of Edge Locations.
     - Web Distribution => Typically used for websites
-    - RTMP => (Adobe Real time messaging protocal) used for media streaming.
+    - RTMP => (Adobe Real time messaging protocol) used for media streaming.
   - Edge locations are not just READ only - you can WRITE to them too. (i.e., PUT an object on to them)
-  - CloudFront Edge Locations are utilised by S3 Transfer Acceleration to reduce latency for S3 uploads.
+  - CloudFront Edge Locations are utilized by S3 Transfer Acceleration to reduce latency for S3 uploads.
   - Objects  are cached for life of the TTL (Time to Live). (Default 24 hours)
   - You can clear cached objects, but you will be charge. (invalidation)
   
@@ -614,5 +614,20 @@
     - 5,500 get requests
   - FAQ: https://aws.amazon.com/s3/faqs
   
-# Serverless 101
+# Server-less 101
+  - 
+# Lambda
+  - Compute service where you can upload your code and create a Lambda function. Lambda takes care of provisioning and managing the servers that you use to run the code.
+  - Use lambda in following ways:
+    - As an event driven compute service where AWS Lambda runs your code in response to events.
+    - As a compute service to run your code in response to HTTP requests using Amazon API gateway or API calls made during AWS SDKs.
+  - Lambda scales out (not up) automatically. (can have/run millions of functions in parallel but if run out of memory you need to update the amount of memory lambda using)
+  - Lambda functions are independent, 1 event = 1 function
+  - Lambda is server-less
+  - Know what services are server-less ! (things like Lambda, Gateway, S3, DynamoDB etc.., not RDS)
+  - Lambda functions can trigger other lambda functions, 1 event = x functions if function trigger other functions
+  - AWS X-ray allows to debug
+  - Lambda can do things globally. (for e.g. used to backup S3 buckets to other S3 buckets)
+  - Know your trigger.
+# API Gateway
   - 

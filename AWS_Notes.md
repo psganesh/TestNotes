@@ -641,4 +641,13 @@
   - Create Lambda => Create API GateWay
   - Create S3 
     - ?????
-# 
+# Version Control with Lamba
+  - Exam Tips
+    - Can have multiple versions of Lambda Expressions.
+    - Latest version will use $Latest
+    - Qualified version will use $Latest, unqualified will not have it.
+    - Versions are immutable (cannot be changed)
+    - Can split traffic using aliases to different versions
+      - Cannot split traffic with $Latest, instead create an alias to latest
+# Using Polly to Help your Exam Lab - Part1
+  - 

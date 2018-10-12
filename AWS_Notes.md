@@ -621,14 +621,14 @@
   - Use lambda in following ways:
     - As an event driven compute service where AWS Lambda runs your code in response to events.
     - As a compute service to run your code in response to HTTP requests using Amazon API gateway or API calls made during AWS SDKs.
-  - Lambda scales out (not up) automatically. (can have/run millions of functions in parallel but if run out of memory you need to update the amount of memory lambda using)
+  - Lambda scales out (not up) automatically. (can have/run millions of functions in parallel but if run out of memory you need to update the amount of memory lambda using) (in other words, you can have many many concurrent functions running at once)
   - Lambda functions are independent, 1 event = 1 function
   - Lambda is server-less
   - Know what services are server-less ! (things like Lambda, Gateway, S3, DynamoDB etc.., not RDS)
   - Lambda functions can trigger other lambda functions, 1 event = x functions if function trigger other functions
   - AWS X-ray allows to debug
   - Lambda can do things globally. (for e.g. used to backup S3 buckets to other S3 buckets)
-  - Know your trigger.
+  - Know your triggers. (memorize the list triggers that can be configured like S3, SNS and etc) - exam?
 # API Gateway
   - Think Waiters in hotel to serve food. (Customer -> waiter -> chef)
   - has caching capabilities 
@@ -641,7 +641,7 @@
   - Create Lambda => Create API GateWay
   - Create S3 
     - ?????
-# Version Control with Lamba
+# Version Control with Lambda
   - Exam Tips
     - Can have multiple versions of Lambda Expressions.
     - Latest version will use $Latest
@@ -649,5 +649,26 @@
     - Versions are immutable (cannot be changed)
     - Can split traffic using aliases to different versions
       - Cannot split traffic with $Latest, instead create an alias to latest
-# Using Polly to Help your Exam Lab - Part1
-  - 
+# Step Functions =?
+  - Great way to visualize your serverless application & test. It provides graphical console.
+  - Step functions automatically triggers and tracks each step.
+  - Step functions logs the state of each step so if something goes wrong you can track what went wrong and where.
+# X-Ray =?
+  - The X-Ray SDK Provides:
+    - Interceptors to add to your code to trace incoming HTTP requests
+    - Client handlers to instrument AWS SDK clients that your application uses to call other AWS Services
+    - An HTTP client to use to instrument calls to other internal and external HTTP Web services
+  - The X-Ray integrates with the following AWS Services:
+    - Elastic Load Balancing
+    - AWS Lambda
+    - Amazon API Gateway
+    - Amazon Elastic Compute Cloud
+    - AWS Elastic Beanstalk
+  - The X-Ray integrates with the following languages:
+    - Java, Go, Node.js, Python, Ruby, .Net
+# Advanced API Gateway
+  - Import API's using Swagger 2.0 definition files
+  - API Gateway can be throttled
+    - Default limits are 10,000 rps (req per sec) or 5,000 concurrently
+  - You can configure API gateway as a SOAP Webservice passthrough
+# Introduction to DynamoDB

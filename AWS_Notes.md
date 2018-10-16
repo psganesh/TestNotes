@@ -672,3 +672,17 @@
     - Default limits are 10,000 rps (req per sec) or 5,000 concurrently
   - You can configure API gateway as a SOAP Webservice passthrough
 # Introduction to DynamoDB
+  - Low latency NOSQL DB
+  - Consists of Table items (rows) and Attributes (columns)
+  - Support both document and key-value data models
+  - supported document formats are JSON, HTML, XML
+  - 2 types of primary key
+    - Partition Key (unique key)
+    - Composite key (Partition key + Sort Key)
+  - 2 consistency models
+    - Strongly consistent => Any write before read will be reflected and consistent
+    - Eventually Consistent => Best performance
+  - Access controlled using IAM policies
+  - Fine grained access control using IAM condition parameter 'dynamodb:LeadingKeys' to allow users to access only the items where the parition key value matches their user id.
+# Creating a DynamoDB Table Lab
+  - 

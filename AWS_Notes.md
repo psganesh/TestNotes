@@ -1,7 +1,8 @@
 # Blue Print
   - Ability to write code using AWS security best practices (e.g., not using secret and access keys in the code,instead using IAM roles)
 
-# (from old course)-----************************------BEGIN
+***
+#### (from old course)-----************************------BEGIN
 
 # AWS Global Infrastructure - Exam Tips
   - Understand the difference between a region, an Availability Zone (AZ) and an Edge Location
@@ -149,7 +150,8 @@
 # Game Development
 - GameLift - to develop VR games in cloud
 
-# (from old course)-----************************------END
+### (from old course)-----************************------END
+***
 
 
 # Identity Access Management (IAM)
@@ -168,7 +170,8 @@
   - arn -> Amazon Resource Name
   - FAQ????????? https://aws.amazon.com/iam/faqs/
   
-# ***************** OLD COURSE **********************-- Beg
+***
+### ***************** OLD COURSE **********************-- Beg
 # STS – Security Token Service
 - Grants users limited & temp access to AWS resources
 - Federation – SAML, AD, Single sign on 
@@ -199,7 +202,8 @@
 - User pools - A user pool is a user directory in Amazon Cognito. With a user pool, your users can sign in to your web or mobile app through Amazon Cognito. Your users can also *sign in through social identity providers* like Facebook or Amazon, and through SAML identity providers.  
 - Identity pools  - Identity pools provide AWS credentials to grant your users access to other AWS services. To enable users in your user pool to access AWS resources, you can configure an identity pool to exchange user pool tokens for AWS credentials  
 - 
-# ***************** OLD COURSE **********************-- End
+### ***************** OLD COURSE **********************-- End
+***
 
 
 # EC2 (Elastic Compute Cloud)

@@ -4,15 +4,15 @@
 ***
 #### (from old course)-----************************------BEGIN
 
-# AWS Global Infrastructure - Exam Tips
+## AWS Global Infrastructure - Exam Tips
   - Understand the difference between a region, an Availability Zone (AZ) and an Edge Location
   - A REGION is the physical location in the world which consists of 2 or more Availability Zones (AZ's) (E.g.: London)
   - An AZ is one or more discrete Data Centers, each with redundant power, networking and connectivity, housed in separate facilities.
   - Edge Locations are endpoints for AWS which are used for caching content. Typically consists of CloudFront, Amazon's Content Delivery Network. (NY <-> Melbourne, caching to nearest (Sydney) when accessing 2nd time it will be accessed from sydney).
 
-# AWS Platform Components
+## AWS Platform Components
 
-# Compute *
+### Compute *
 - EC2 (Elastic Compute Cloud) – vm in AWS platform
 - EC2 container service - this is where you manage & run docker container at scale
 - Elastic BeanStalk - (developer who don't understand AWS, they will just upload code to this) then it provision things like auto Scaling groups, Load balancing, EC2 instance and etc
@@ -20,34 +20,34 @@
 - Lightsail – Virtual private service, provisioning a server with fixed IP address (RDP access for windows, SSH for Linux) - Control through Management console - Like lower version of EC2 :)
 - Batch –  Batch computing in cloud 
 
-# Storage *
+### Storage *
 - S3 – simple storage service, object based stored, Files will be stored into bucket
 - EFS – Elastic File System -  Network attach storage - store into volume and mounted to multiple machines
 - Glacier – Data Archival - for eg. need once in a year - cheap
 - Snowball – way to bring in large data into data center 
 - Storage Gateway – Virtual appliance, replicates info back to S3 - 4 types
 
-# Database *
+#### Database *
 - RDS – Relational Db service, mysql, postgress, oracle 
 - DynamoDB – Non relational 
 - Elasticache -  caching data - for Eg. to store top 10 products in cache rather than to pull from DB using web service - it free up the DB to run the other queries.
 - Red Shift – Data Warehousing or BI - here run complex query (lot time complete, joins & etc) for analysis (for e.g. mgmt want to know profit and loss)
 
-# Migration 
+### Migration 
 - AWS Migration Hub – track your application as you migrate to AWS and integrate with other services within migration framework
 - Application Discovery service - Automated discover the dependencies. Eg: share-point or dependency with DB
 - Database migration service - for e.g: On premises DB into AWS
 - Server migration service - for e,g: server to migrate to AWS
 - Snowball - migrate TB data into AWS
 
-# Networking & Content Delivery*
+### Networking & Content Delivery*
 - VPC – virtual private cloud.  Configure your own private cloud (firewall, AZ, N/W side IP range, route tables and etc)
 - CloudFront – CDN,  stores your image/video closer to your AZ, edge location
 - Route53 – DNS service 
 - API Gateway – Create own API to talk to other services
 - Direct Connect – direct line from HDQ to amazon cloud / VPC
 
-# Developer Tools 
+### Developer Tools 
 - CodeStar – collaborating code
 - CodeCommit – store code. Version controller. Store GitHub repository
 - Code Build - Compile then run tests then produce software packages ready to deploy
@@ -56,7 +56,7 @@
 - X-Ray - debug the application
 - Cloud9 – IDE, inside web browser
 
-# Management Tools*	
+### Management Tools*	
 - Cloud watch – Monitoring service
 - Cloud formation – Turning your infrastructure into code (script)
 - CloudTrail – log the changes in the AWS ENV. (default turned on for 1 week records)
@@ -67,7 +67,7 @@
 - Trusted Advisor – advice security (eg. port open), risks, capacity 
 - Managed services - No need to worry about EC2, Scaling and etc., it helps - New service
 
-# Media Services
+### Media Services
 - invented into 2017 (new)
 - Elastic Transcoder – (old service) resize video to android /ios
 - MediaConvert - File based media transcoding service
@@ -76,7 +76,7 @@
 - MediaStore - store service
 - MediaTailor - 
 
-# Machine Learning 
+### Machine Learning 
 - Sagemaker – 
 - Comprehend 
 - Deeplens – physical hardware – camera
@@ -87,7 +87,7 @@
 - Amazon translate – translator
 - Amazon Transcribe – speech recognition – speech to text  
 
-# Analytics *
+### Analytics *
 - Athena - run SQL queries against S3 bucket. (report excel)
 - EMR – big data solution. To process large data 
 - Cloudsearch 
@@ -98,7 +98,7 @@
 - Data Pipleline – moving the data bw diff amazon services
 - Glue – used for ETL
 
-# Security & Identity & Compliance *
+### Security & Identity & Compliance *
 - IAM – Identify Access Management
 - Cognito – Authentication service, gives temp access to AWS
 - GuardDuty – Monitors for malicious activity
@@ -111,46 +111,46 @@
 - Shield – prevent Ddos attacks 
 - Artifact – download compliance report, PCI report (downloading & inspecting AWS documentation)
 
-# Mobile Service 
+### Mobile Service 
 - Mobile Hub – management console for mobile apps, 
 - PinPoint – push notifications to mobile users
 - AWS Appsync – automatically updates the data (off-line).  
 - Device Farm - testing apps in real devices
 - Mobile Analytics
 
-# AR / VR 
+### AR / VR 
 - Sumerian – code name 
 
-# Application Integration*
+### Application Integration*
 - Step functions - way of managing diff Lambda function
 - Amazon MQ
 - SNS – Notification service (eg. if bill reaches 10$ then notification will be sent to your phone)
 - SQS - Simple Queue service. Decoupling infrastructure. Queue -> EC2 (for processing), in case EC2 is died the queue still has request data.
 - SWF – Simple Work-flow Service 
 
-# Customer Engagement 
+### Customer Engagement 
 - Amazon Connect
 - SES - Simple Email Service 
 
-# Business Productivity 
+### Business Productivity 
 - Alexa for Business 
 - Chime – Video conference like xoom / Google handout
 - Work Docs - like drop box
 - WorkMail – like office 365
 
-# Desktop and App Streaming 
+### Desktop and App Streaming 
 - Workspaces - VDI solution - literally run OS
 - AppStream 2.0 - like citrix 
 
-# IOT
+### IOT
 - IOT device management 
 - Amazon FreeRtos – OS for micro controller 
 - GreenGrass 
 
-# Game Development
+### Game Development
 - GameLift - to develop VR games in cloud
 
-### (from old course)-----************************------END
+#### (from old course)-----************************------END
 ***
 
 
@@ -171,7 +171,7 @@
   - FAQ????????? https://aws.amazon.com/iam/faqs/
   
 ***
-### ***************** OLD COURSE **********************-- Beg
+#### ***************** OLD COURSE **********************-- Beg
 # STS – Security Token Service
 - Grants users limited & temp access to AWS resources
 - Federation – SAML, AD, Single sign on 
@@ -202,7 +202,7 @@
 - User pools - A user pool is a user directory in Amazon Cognito. With a user pool, your users can sign in to your web or mobile app through Amazon Cognito. Your users can also *sign in through social identity providers* like Facebook or Amazon, and through SAML identity providers.  
 - Identity pools  - Identity pools provide AWS credentials to grant your users access to other AWS services. To enable users in your user pool to access AWS resources, you can configure an identity pool to exchange user pool tokens for AWS credentials  
 - 
-### ***************** OLD COURSE **********************-- End
+#### ***************** OLD COURSE **********************-- End
 ***
 
 
@@ -239,7 +239,7 @@
       - P -> Graphics/General purpose GPU (think PICS) => Machine Learning, Bit coin mining etc
       - X -> Extreme Memory optimized => SAP HANA/Apache Spark etc
 
-# EBS (Elastic Block Storage)
+## EBS (Elastic Block Storage)
   - Virtual Disk, Storage volume attached to EC2 Instances. run DB or use like block device
   - Placed in a specific AZ. Automatically replicated to protect from failure
   - EBS attached with EC2 is called Root Device Volume. (eg. windows -> C: drive)
@@ -267,7 +267,7 @@
     - Cannot mount 1 EBS volume to multiple EC2 instances – instead us EFS
     - Can transfer reserved instance from one AZ to another
 
-# EC2 Lab (copied)
+### EC2 Lab (copied)
 - AMI – Amazon Machine Instance  (when you create AMI, registerImage is the final process)
 - AMI can be shared to other AWS account 
 - AMI can be changed to public
@@ -308,7 +308,7 @@
 - Windows
   - Putty Keygen to convert pem to ppk
 
-# Elastic Load Balancers
+## Elastic Load Balancers
   - Balance the load across multiple instances
   - 3 types
     - Application Load Balancers
@@ -323,7 +323,7 @@
      - Troubleshoot the application. Is it the web server or Database server?
    - If you need the IPv4 address of your end user, look for the X-Forwarded-For Header. (ie. to see the public ip address 124.12.3.121, where the request is coming from)
 
-# Route 53 Lab
+## Route 53 Lab
   - DNS service
   - Domain names to 
     - EC2 instances
@@ -338,7 +338,7 @@
           - Load Balancers >> Create LB >> Application LB >> Specify (Name: eg.MyALB, Scheme: Internet-facing, IPAddress Type: ipv4, Listeners: HTTP 80, HTTPS 443 if needed, AZ: All) >> Assign Security Groups (eg. MyWebDMZ) >> Configure Routing (Create Target group.eg> MyWebServerGroup. Note: Each target group to only one One LB, Specify Health Checks eg. index.html) >> Register Targets (Add to registered eg. already created EC2 instance) >> CREATE
    - imcloudguru.com -> ALB -> EC2 instance -> index.html ("Welcome to AWS world..!!!")
 
-# CLI Demo Lab
+### CLI Demo Lab
   - Commands used in Video
     - ssh ec2-user@xx.xx.xx.xx -i MyNewKeyPair.pem 
     - sudo su
@@ -357,7 +357,7 @@
   - Do not use just one access key - create per developer
   - You can use the CLI on your PC
 
-# EC2 with S3 Role Lab
+### EC2 with S3 Role Lab
   - create role for ex: full access to S3 and attach with EC2 then try following commands
     - aws s3 ls
     - sometimes access error still will be shown due to credentials stored in server. Delete them using following steps
@@ -373,7 +373,7 @@
     - You can change a policy on a role and it will take immediate effect
     - You can attach or detach roles to running EC2 instances without having to stop or terminate
 
-# How to Encrypt an EBS volume
+## How to Encrypt an EBS volume
   - 1. Additional Volume ?
     - EC2 >> EBS >> Volume >> Create Volume >> Select Volume type (GP2), size 100 GB, AZ (same AZ where EC2 present).... SELECT Encryption, Select Master key (default - aws/ebs) >> Create column
     - Actions >> Attach volume >> Select the EC2 instance >> Attach
@@ -422,7 +422,7 @@
     - 2 engines: Memecached
     - Redis
     
-# RDS Lab
+### RDS Lab
   - Create RDS DB (MySQL)
   - Commands for startup script EC2
     - "#!/bin/bash  
@@ -437,7 +437,7 @@
     - Change connect.php
     - Specify EC2 security group (myWebDMZ) as source in Inbound of rds security group with port 3306. ???? i.e. since the security group of RDS and EC2 is different, allow EC2 security Group in RDS inBound. EC2 must be allowed to talk to RDS.
     
-# RDS Multi-AZ and Read Replicas
+### RDS Multi-AZ and Read Replicas
   - 2 types of backups
     - Automated Backups
       - recover at any point of time within a "retention period" (1~35 days)
@@ -493,7 +493,7 @@
      - Elasticache is a good choice if your DB is paricularly read-heavy and not prone to frequent changing
      - REDSHIFT is a good answer if the reason your database is feeling stress is because management keep running OLAP transcations on it etc.
      - Dataware housing questions => choose Redshift
-# EC2 Summary
+### EC2 Summary
   - Developer Associate exam is Server less focused than EC2.
 # S3 (Simple Storage Service)
   - Object based Storage (files, images, web pages... NOT for OS, DB). Not Block Storage.
@@ -610,7 +610,7 @@
   - Objects  are cached for life of the TTL (Time to Live). (Default 24 hours)
   - You can clear cached objects, but you will be charge. (invalidation)
   
-# S3 Performance Optimization - Exam Tips
+### S3 Performance Optimization - Exam Tips
   - 1. GET-Intensive workloads => use CloudFront
   - 2. Mixed workloads => Avoid sequential key names (S3 Objects). Use Random prefix like a hex hash 'eg. 7d4532-xxxx' to prevent multiple objects being stored on the same partition.
   - In July 2018, Amazon increase S3 performance
@@ -620,7 +620,7 @@
   
 # Server-less 101
   - 
-# Lambda
+## Lambda
   - Compute service where you can upload your code and create a Lambda function. Lambda takes care of provisioning and managing the servers that you use to run the code.
   - Use lambda in following ways:
     - As an event driven compute service where AWS Lambda runs your code in response to events.
@@ -633,7 +633,7 @@
   - AWS X-ray allows to debug
   - Lambda can do things globally. (for e.g. used to backup S3 buckets to other S3 buckets)
   - Know your triggers. (memorize the list triggers that can be configured like S3, SNS and etc) - exam?
-# API Gateway
+## API Gateway
   - Think Waiters in hotel to serve food. (Customer -> waiter -> chef)
   - has caching capabilities 
   - low cost, scales automatically
@@ -641,11 +641,11 @@
   - log results to CloudWatch
   - Enable CORS if multiple domains
   - CORS is enforced by client
-# Build Simple Serverless
+### Build Simple Serverless
   - Create Lambda => Create API GateWay
   - Create S3 
     - ?????
-# Version Control with Lambda
+## Version Control with Lambda
   - Exam Tips
     - Can have multiple versions of Lambda Expressions.
     - Latest version will use $Latest
@@ -653,11 +653,11 @@
     - Versions are immutable (cannot be changed)
     - Can split traffic using aliases to different versions
       - Cannot split traffic with $Latest, instead create an alias to latest
-# Step Functions =?
+### Step Functions =?
   - Great way to visualize your serverless application & test. It provides graphical console.
   - Step functions automatically triggers and tracks each step.
   - Step functions logs the state of each step so if something goes wrong you can track what went wrong and where.
-# X-Ray =?
+### X-Ray =?
   - The X-Ray SDK Provides:
     - Interceptors to add to your code to trace incoming HTTP requests
     - Client handlers to instrument AWS SDK clients that your application uses to call other AWS Services
@@ -670,7 +670,7 @@
     - AWS Elastic Beanstalk
   - The X-Ray integrates with the following languages:
     - Java, Go, Node.js, Python, Ruby, .Net
-# Advanced API Gateway
+### Advanced API Gateway
   - Import API's using Swagger 2.0 definition files
   - API Gateway can be throttled
     - Default limits are 10,000 rps (req per sec) or 5,000 concurrently

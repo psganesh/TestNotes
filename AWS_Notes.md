@@ -684,7 +684,7 @@
     - Eventually Consistent => Best performance
   - Access controlled using IAM policies
   - Fine grained access control using IAM condition parameter 'dynamodb:LeadingKeys' to allow users to access only the items where the parition key value matches their user id.
-## DynamoDB Indexes
+### DynamoDB Indexes
   - enable fast queries on specific data columns.
   - Give you a different view of you data based on alternative parition or Sort Keys
   - 1. Local Secondary Index
@@ -695,5 +695,5 @@
     - Can create any time - at tabel creation or after
     - Different Partition Key
     - Different Sort key
-## Scan Vs Query API Call
+### Scan Vs Query API Call
   - 

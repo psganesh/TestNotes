@@ -681,8 +681,8 @@
   - Support both document and key-value data models
   - supported document formats are JSON, HTML, XML
   - 2 types of primary key
-    - Partition Key (unique key)
-    - Composite key (Partition key + Sort Key)
+    - Partition Key (unique key) => eg. User Id
+    - Composite key (Partition key + Sort Key) => eg. User Id + Date A/c created
   - 2 consistency models
     - Strongly consistent => Any write before read will be reflected and consistent
     - Eventually Consistent => Best performance
@@ -717,13 +717,32 @@
   - Provisioned Throughput is measured in Capacity Units
   - 1 x Write Capacity Unit = 1 x 1 KB Write per Second
   - 1 x Read Capacity Unit = 1 X 4 KB Strongly consistent Read or 2 x 4 KB Eventually Consistent Read
-  - Calculate - READ capacity Units
+  - Calculate - capacity Units for each READ
     - 1. How many __READ capacity Units = size of each item / 4 KB__ then round to the nearest whole number (eg 3KB/4KB = 0.75 => 1)
-    - 2. - 
+    - 2. 
       - for Strongly consistent Reads=> No. of capacity Unites * no. of read per sec required (eg. 1 * 80 => 80 Read Capacity units required )
       - for Eventually consistent Reads => No. of capacity Unites * no. of read per sec required (eg. 1 * 80 / 2 => 40 Read Capacity units required )
-  - Calculate - WRITE capacity Units
+  - Calculate - capacity Units for each WRITE
      - 1. How many __WRITE capacity Units = size of each item / 1 KB__ then round to the nearest whole number (eg. 512B/1KB = 0.5 => 1)
      - 2. No. of capacity Unites * no. of write per sec required (eg. 1 * 100 => 100 write Capacity units required)
 ### DynamoDB Accelerator (DAX)
+  - Provides in-memory caching for DynamoDB tables
+  - Improves response times for Eventually Consistent reads only
+  - You point your API calls the DAX cluster, instead of your table
+  - If the item you are querying is on the cache, DAX will return it; otherwise it will perform an Eventually Consistent GetItem operation to your DynamoDB table.
+  - Not suitable for write intensive applications, or applications that require Strongly consistent reads.
+  - Suitable sites eg. Auction Sites, Black Friday Sale and etc...
+### Elasticache
+  - In memory cache sits between your application and DB
+  - 2 different caching strategies: Lazy loading and Write Through
+  - Lazy loading only caches the data when it is required
+  - Elasticache Node failures not fatal, just lots of cache misses
+  - cache miss penalty: initial request, query database, writing to cache
+  - Avoid stale data by implementing TTL
+  - Write Through strategy writes data into the cache whenever there is a change to the DB
+  - Data is never stale
+  - Write Penalty: each write involves a write to the cache
+  - Elasticache node failure means that data is missing until added or updated in the DB
+  - Wasted resources if most of the data is never used
+# KMS 101
   - 

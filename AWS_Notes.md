@@ -700,4 +700,30 @@
     - Different Partition Key
     - Different Sort key
 ### Scan Vs Query API Call
+  - A Query operation finds items in a table using only the Primary Key Attribute.
+  - You provide the Primary key name and a distinct value to search for.
+  - A Scan operation examines every item in the table
+  - By default returns all date attributes.
+  - Use the __ProjectionExpression__ parameter to refine the results.
+  - Query results are always sorted by the sort key is there is one
+  - SOrted in ascending order
+  - Set ScanIndexForward parameter to false to reverse the order queries only
+  - Query operation is generally more efficient than a scan.
+  - Reduce the impact of a query or scan by setting a smaller page size which uses fewer read operations.
+  - Isolate scan operations to specific tables and segregate them from your mission-critic traffic
+  - Try parallel scans, rather than the default sequential scan
+  - Avoid using scan operations if you can: design tables in a way that you can use the query, get, or BatchGetItem APIs.
+### DynamoDB Provisioned Throughput
+  - Provisioned Throughput is measured in Capacity Units
+  - 1 x Write Capacity Unit = 1 x 1 KB Write per Second
+  - 1 x Read Capacity Unit = 1 X 4 KB Strongly consistent Read or 2 x 4 KB Eventually Consistent Read
+  - Calculate - READ capacity Units
+    - 1. How many __READ capacity Units = size of each item / 4 KB__ then round to the nearest whole number (eg 3KB/4KB = 0.75 => 1)
+    - 2. - 
+      - for Strongly consistent Reads=> No. of capacity Unites * no. of read per sec required (eg. 1 * 80 => 80 Read Capacity units required )
+      - for Eventually consistent Reads => No. of capacity Unites * no. of read per sec required (eg. 1 * 80 / 2 => 40 Read Capacity units required )
+  - Calculate - WRITE capacity Units
+     - 1. How many __WRITE capacity Units = size of each item / 1 KB__ then round to the nearest whole number (eg. 512B/1KB = 0.5 => 1)
+     - 2. No. of capacity Unites * no. of write per sec required (eg. 1 * 100 => 100 write Capacity units required)
+### DynamoDB Accelerator (DAX)
   - 

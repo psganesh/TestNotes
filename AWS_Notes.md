@@ -744,5 +744,29 @@
   - Write Penalty: each write involves a write to the cache
   - Elasticache node failure means that data is missing until added or updated in the DB
   - Wasted resources if most of the data is never used
-# KMS 101
-  - 
+# KMS 101 - AWS Key Management Service
+  - to create and control the encryption keys
+  - integrate with EBS, S3, Amazon Redshift, Amazon Elastic Transcoder, Amazon WorkMail, RDS, and others to make it simple to encrypt your data with encryption keys that you manage
+  - Encryption keys for KMS is regional (but not IAM). i.e., can not use the key created in one region to other region.
+  - Customer Master Key (CMK) consists of following:
+    - Alias
+    - Creation Date
+    - Description
+    - key state
+    - key material (either customer/AMS provided)
+  - can NEVER be exported (if export needed then use CloudHSM not CMK)
+  - Setup a CMK
+    - 1. Create Alias and Description
+    - 2. Choose material option....
+      - Define key __Administrative permissions__
+        - IAM users/role that can administer (but not use) the key through the KMS API
+      - Define key __Usage Permissions__
+        - IAM users/role that can use the key to encrypt or decrypt data.
+  - Key Material Options:
+    - Use KMS generated key material
+    - Your own key material (not for dev associate exam - outside scope)
+### KMS API Calls
+  - aws kms encrypt --key-id YOURKEYIDHERE --plaintext fileb://secret.txt --output text --query CiphertextBlob | base64 --decode > encryptedsecret.txt
+  - aws kms decrypt --ciphertext-blob fileb://encryptedsecret.txt --output text --query Plaintext | base64 --decode > decryptedsecret.txt
+  - aws kms re-encrypt --destination-key-id YOURKEYIDHERE --ciphertext-blob fileb://encryptedsecret.txt | base64 > newencryption.txt 
+  - aws kms enable-key-rotation --key-id YOURKEYIDHERE

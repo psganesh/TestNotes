@@ -770,3 +770,26 @@
   - aws kms decrypt --ciphertext-blob fileb://encryptedsecret.txt --output text --query Plaintext | base64 --decode > decryptedsecret.txt
   - aws kms re-encrypt --destination-key-id YOURKEYIDHERE --ciphertext-blob fileb://encryptedsecret.txt | base64 > newencryption.txt 
   - aws kms enable-key-rotation --key-id YOURKEYIDHERE
+### KMS Envelope Encryption
+  - CMK (Customer master key)
+  - CMK used to decrypt the data key (Envelope key)
+  - Envelope key is used to decrypt the data 
+# SQS
+  - SQS is a distributed message queueing system
+  - Allows you to decouple the componenets of an application so that they are independent
+  - PULL based, NOT PUSH based
+  - 1. Standard Queues (default) => best-effort ordering (not guarantee); message delivered at least once
+  - 2. FIFO Queues (First In First Out) => Ordering strictly preserved, message delivered once, no duplicates. e.g. good for banking transactions which need to happen in strict order.
+  - Visibility Timeout 
+    - Default is 30 seconds - increase if your task takes > 30 seconds to complete
+    - Max 12 hours
+  - Types of Polling
+    - 1. Short polling => returned immediately even if no messages are in the queue
+    - 2. Long polling => polls the queue periodically and only returns a response when a message is in the queue or the timeout is reached.
+# SNS (Simple Notification Service)
+  - SNS is a scalable and highly available notification service which allows you to send push notifications from the cloud
+  - Variety of message formats supported: SMS text message, email, Amazon Simple Queue Service (SQS) queues, any HTTP endpoint.
+  - Pub-Sub model whereby users subscribe to topics
+  - It is a push mechanism, rather than a pull(poll) mechanism.
+# SES Vs SNS
+  - 

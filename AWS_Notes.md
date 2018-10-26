@@ -844,5 +844,21 @@
       - Preferred option for mission critical production systems
       - Maintains full capacity
       - To roll back, just delete the new instances and autoscaling group
+  - Lab: refer 'Deployment policy' under 'Configuration' (ElasticBeanStalk >> --Application-- >>)
 ### Advanced ElasticBeanStalk
-  - ????
+  - Can customize your Elastic Beanstalk environment by adding configuration files
+  - The files are written in YAML or JSON
+  - Files have .config extension
+  - The .config files are saved in the .ebextensions folder
+  - Your .ebextensions folder must be located in the top level directory of your application source code bundle
+### RDS & Elastic Beanstalk
+  - 2 options for launching RDS instance:
+  - 1. Launch within EBS (From EBS console)
+    - when you terminate the EBS env, the DB will also be terminated
+    - Quick and easy to start & Suitable for Dev and Testing env only
+  - 2. Launch outside of EBS (From RDS console)
+    - Additional configuration steps required - Security Group and connection information
+    - Suitable for Production Env
+    - Allow connection from multiple environments, you can tear down the application stalk without impacting the db
+# Other AWS services Summary
+  - ???

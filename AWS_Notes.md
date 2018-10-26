@@ -791,5 +791,58 @@
   - Variety of message formats supported: SMS text message, email, Amazon Simple Queue Service (SQS) queues, any HTTP endpoint.
   - Pub-Sub model whereby users subscribe to topics
   - It is a push mechanism, rather than a pull(poll) mechanism.
-# SES Vs SNS
-  - 
+### SES Vs SNS
+  - SES is for email only
+  - It can be used for incoming and outgoing mail
+  - It is not subscription based, you only need to know the email address
+  - SNS supports multiple formats (SMS, SQS, HTTP, Email)
+  - Push notifications only
+  - Pub/Sub model: consumers must subscribe to a topic
+  - You can fan-out messages to large number of recipients (e.g., multiple clients each with their own SQS Queue)
+  
+# Kinesis 101
+  - Streaming Data => Data that is generated continously by thouands of data sources, which typically send in the data records simultaneously, and in small bytes (KB). (e.g., think purchases from online stores - amazon, stock prices, Game data etc) 
+  - Kinesis is a platform on AWS to send your streaming data too. Kinesis makes it easy to load and analyze streaming data, and also providing the ability for you to build your own custom applications for you business needs.
+  - 3 core Kinesis Services
+    - 1. Kinesis Streams
+      - Data comes from sources like EC2, Mobile, PC, IOT
+      - it stores the data in __Shards__ (Duration: 24hours (default) ~ 7 days)
+      - then used for calculation (EC2) then stored (S3, EMR, Redshift, DynamoDB)
+        - Shards => Kinesis Streams consists of Shards.
+	- Total Capacity of Stream = Sum of capacities of its shards
+    - 2. Kinesis Firehose
+      - Automatted way. Analyzed using Lambda. Then send to S3. NO duration like Streams to store, it will send as soon it analyze or receive.
+      - Analyzing the data, Automatically using lambda, not having to worry about consumers
+    - 3. Kinesis Analytics
+      - Run SQL queries on Streams / Firehose. 
+      - Then send the results of SQL to S3 / Redshift / Elasticsearch Cluster
+      - In general, Analyzing the kinesis using way like SQL Querying
+      
+# ElasticBeanStalk 101
+  - Like CloudFormation (JSon format - Scripting your environment) But ElasticBeanStalk is GUI based (provisioning resources)
+  - Deploys and scales web application
+  - Support widely used programming like JAVA, .Net, PHP, Python, Ruby, GO, Docker, Node.js
+  - Application server like Tomcat, Passenger, Puma, IIS
+  - Provisons underlying services for you
+  - Manage EC2 instances and admistrative control
+  - Updates, Monitoring, metrics and health checks all included
+  - 4 Deployment Approaches:
+    - 1. All At Once
+      - Service Interruption while you update the entire environment at once
+      - To roll back, perform a further all at once Upgrade
+    - 2. Rolling
+      - Deploys the new version in batches. (e.g., 2 instances taken out of service from 8 instances while deployement then next 2)
+      - Not ideal for performance sensitive systems
+      - Reduced capacity during deployment
+      - To roll back, perform a further rolling update      
+    - 3. Rolling with Additional Batch
+      - Launches an additional batch of instances then deploy new version in that batches
+      - Maintains full capacity
+      - to roll back, perform a further rolling update
+    - 4. Immutable
+      - Deployes the new version to a fresh group of instances. Once passed health check then old instances are terminated and new moved to existing auto scaling group.
+      - Preferred option for mission critical production systems
+      - Maintains full capacity
+      - To roll back, just delete the new instances and autoscaling group
+### Advanced ElasticBeanStalk
+  - ????

@@ -860,5 +860,21 @@
     - Additional configuration steps required - Security Group and connection information
     - Suitable for Production Env
     - Allow connection from multiple environments, you can tear down the application stalk without impacting the db
-# Other AWS services Summary
-  - ???
+
+# CI/CD
+  - CI => is about integrating or merging the code changes frequently at lease once per day, enables multiple devs to work on the same application.
+  - C Delivery => is all about automating the build, test and deployment functions. (however manual intervention is required for deployment to start)
+  - C Deployment => fully automates the entire release process, code is deployed into Production as soon it has successfully passed thourgh the release pipeline.
+  - AWS CodeCommit => Source control service (git)
+  - AWS CodeBuild => compile source code, run tests and package code
+  - AWS CodeDeploy => Automated Deployment on EC2, on premises systems and Lambda
+  - AWS CodePipeline => CI/CD workflow tool, fully automates the entire release process (build, test, deployment)	
+
+### CodeCommit 101
+  - AWS CodeCommit
+    - based on Git
+    - Centeralized repository for all your code, binaries, images, and libraries.
+    - Track and manages code changes
+    - Maintains version history
+    - Manages updates from multiple sources and enables collaboration
+### 

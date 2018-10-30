@@ -877,4 +877,20 @@
     - Track and manages code changes
     - Maintains version history
     - Manages updates from multiple sources and enables collaboration
-### 
+### CC Lab
+  - ??
+### CodeDeploy 101
+  - Fully Automated deployment service
+  - 2 types
+    - 1. In-Place or Rolling Update
+      - You stop the application on each host and deploy the latest code.
+      - EC2 and on premise systems only (not for lambda).
+      - To roll-back, you must re-deploy the previous version of the application.
+    - 2. Blue/Green
+      - Brand new instances are provisioned and the new application is deployed to these new instance.
+      - Traffic is routed to the new instances according to your own schedule.
+      - Supported for EC2, on-premise systems and Lambda functions.
+      - Roll back is just route the traffic back to the original instances.
+      - Blue => Active Deployment, Green => New release.
+### CD Lab
+  - ???

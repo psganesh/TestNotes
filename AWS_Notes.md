@@ -893,4 +893,6 @@
       - Roll back is just route the traffic back to the original instances.
       - Blue => Active Deployment, Green => New release.
 ### CD Lab
-  - ???
+  - ??? revisit LAB
+### CodePipeline 101
+  - ??

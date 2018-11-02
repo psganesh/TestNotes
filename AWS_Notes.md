@@ -893,6 +893,36 @@
       - Roll back is just route the traffic back to the original instances.
       - Blue => Active Deployment, Green => New release.
 ### CD Lab
-  - ??? revisit LAB
+  - ??? revisit LAB - billing?
 ### CodePipeline 101
+  - Continuous Integration / Continuous Delivery Service
+  - Automates your end-to-end software release process based on a user defined workflow
+  - Can be configured to automatically trigger your pipeline as soon as a change is detected in your source code repository
+  - Integrates with other services from AWS like CodeBuild and CodeDeploy, as well as third party and custom plug-ins.
+### CP Lab
   - ??
+### Advanced CodeDeploy the AppSpec File
+  - The AppSpec file defines all the parameters needed for the deployment. e.g. location of application files and pre/post deployment validation tests to run
+  - For EC2/On premises Systems, the appspec.yml file must be placed in the root directory of your revision (the same folder that contains your application code). Written in YAML 
+  - Lambda Supports YAML or JSON
+  - The run order for Hooks in a CodeDeploy Deployment:
+    - BeforeBlockTraffic -> BlockTraffic -> AfterBlockTraffic
+    - ApplicationStop
+    - BeforeInstall
+    - Install
+    - AfterInstall
+    - ApplicationStart
+    - ValidateService
+    - BeforeAllowTraffic -> AllowTraffic -> AfterAllowTraffic
+    
+### Docker and CodeBuild Lab1 -- ???
+  - Docker commands to build, tag (apply an alias) and push your Docker image to the ECR repository.
+    - docker build -t myimagerepo
+    - docker tag myimagerepo:latest 72345009400.dkr.ecr.eu-central-1.amazonaws.com/myimagerepo:latest
+    - docker push 72345009400.dkr.ecr.eu-central-1.amazonaws.com/myimagerepo:latest
+  - Use buildspec.yml to define the build commands and settings used by CodeBuild to run your build
+  - you can override the settings in buildspec.yml by adding your own commands in the console when you launch the build
+  - If your build fails, check the build logs in the CodeBuild console and you can also view the full codeBuild log in the CloudWatch
+  
+### CloudFormation
+  - 

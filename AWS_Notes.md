@@ -925,4 +925,17 @@
   - If your build fails, check the build logs in the CodeBuild console and you can also view the full codeBuild log in the CloudWatch
   
 ### CloudFormation
-  - 
+  - it allows you to manage, configure and provision AWS infrastructure as code (YAML/JSON)
+  - Main Sections in the template:
+    - Parameters => input custom values
+    - Conditions => e.g., provision resources based on environment
+    - Resources => Mandatory - the AWS resources to create
+    - Mappings => create custom mappings like Region: AMI
+    - Transforms => reference code located in S3 e.g., Lambda code or reusable snippets of CloudFormation code.
+### CF Lab
+  - ???
+### Serverless Application Model (SAM)
+  - Allows you to define and provision serverless applications using cloudFormation
+  - Uses the SAM CLI commands to package and deploy:
+    - sam package => packages your application and uploads to S3
+    - sam deploy => deploys your serverless app using CloudFormation

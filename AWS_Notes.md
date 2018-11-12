@@ -939,3 +939,22 @@
   - Uses the SAM CLI commands to package and deploy:
     - sam package => packages your application and uploads to S3
     - sam deploy => deploys your serverless app using CloudFormation
+### Summary
+  - https://d0.awsstatic.com/whitepapers/DevOps/practicing-continuous-integration-continuous-delivery-on-AWS.pdf
+
+# Advanced IAM
+### Web Identity Federation
+  - Federation Allows users to authenticate with a Web Identity Provider (Google, Facebook, Amazon)
+  - The user authenticates first with the Web ID Provider and receives an authentication token, which is exchanged for temporary AWS Credentials allowing them to assume an IAM role.
+  - Cognito is an Identity Broker which handles interation between your applications and the Web ID provider (you don't need to write your own code to do this)
+    - it provides sign-up, sign-in, and guest user access
+    - Synces user data for a seamless experience across your devices
+    - Cognito is the AWS recommended approach for Web ID Federation particularly for mobile apps
+    - Congnito User Pools
+      - Cognito uses User pools to manage user sign-up and sign-in directly or via Web Identity Providers.
+      - Cognito acts as an Identity broker handling all the interactions with Web Identity Providers.
+      - Cognito uses Push synchronization to send a silent push notification of user data updates to muliple device types associated with a user ID.
+### Cognito Lab
+  - ???
+  
+  - 

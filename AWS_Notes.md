@@ -956,5 +956,10 @@
       - Cognito uses Push synchronization to send a silent push notification of user data updates to muliple device types associated with a user ID.
 ### Cognito Lab
   - ???
+### Inline Policies Vs Managed Policies Vs Custom Policies
+  - 3 different Types
+    - 1. Managed Policy => AWS managed default policies (READ only)
+    - 2. Customer Managed policy => Managed by you (can be EDITED)
+    - 3. Inline POlicy => Managed by you, and embedded in a single user / group / role. (one to one relationship, deleted along when the user /group/role is deleted)
+  - In most cases, AWS recommends using Managed Policies over inline Policies.
   
-  - 
